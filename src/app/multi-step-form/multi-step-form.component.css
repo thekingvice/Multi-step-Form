@@ -1,0 +1,255 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Form__progress {
+  display: flex;
+  gap: 1rem;
+  background-image: url(src/assets/images/bg-sidebar-mobile.svg);
+  background-repeat: no-repeat;
+  width: 100%;
+  justify-content: center;
+  background-size: cover;
+  padding: 2rem 0 6rem 0;
+}
+
+.Form__progress-step {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 1rem;
+  color: white;
+}
+
+/* Step 1 */
+
+.Step-1 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  margin: 0 1rem;
+}
+
+.Step-1__h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-1__p {
+  color: var(--cool-gray);
+}
+
+.Step-1__label {
+  color: var(--marine-blue);
+  font-size: 0.8rem;
+}
+
+.Step-1__text-input {
+  color: var(--marine-blue);
+  border: 1px solid var(--cool-gray);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.Step-1__text-input::placeholder {
+  color: var(--cool-gray);
+  opacity: 100%;
+}
+
+.Step-1__input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Step 2 */
+
+.Step-2 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  margin: 0 1rem;
+}
+
+.Step-2__h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-2__p {
+  color: var(--cool-gray);
+}
+
+.Step-2__button {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+  gap: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.Step-2__button-text-wrapper {
+  text-align: left;
+}
+
+.Step-2__button-h1 {
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-2__button-p {
+  color: var(--cool-gray);
+}
+
+/* Step 3 */
+
+.Step-3 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  margin: 0 1rem;
+}
+
+.Step-3__h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-3__p {
+  color: var(--cool-gray);
+}
+
+.Step-3__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.Step-3__checkbox {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+  content: url(src/assets/images/icon-checkmark.svg);
+  background: var(--purplish-blue);
+  padding: 0.25rem;
+}
+
+.Step-3__button-layout-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Step-3__button-text-wrapper {
+  text-align: left;
+}
+
+.Step-3__button-h1 {
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+
+.Step-3__button-p {
+  color: var(--cool-gray);
+}
+
+/* Step 4 */
+
+.Step-4 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  margin: 0 1rem;
+}
+
+.Step-4__h1 {
+  font-size: 1.5rem;
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+
+.Step-4__p {
+  color: var(--cool-gray);
+}
+
+/* Step 5 */
+
+.Step-5 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  margin: 0 1rem;
+  text-align: center;
+}
+
+.Step-5__icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.Step-5__h1 {
+  color: var(--marine-blue);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.Step-5__p {
+  color: var(--cool-gray);
+}
+
+/* Form Navigation */
+
+.Form-Navigation {
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Form-Navigation__back {
+  color: var(--cool-gray);
+  height: fit-content;
+  cursor: pointer;
+}
+
+.Form-Navigation__forward {
+  background: var(--marine-blue);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}

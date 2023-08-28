@@ -1,71 +1,123 @@
-<form>
-  <section>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
+<form class="Form">
+  <section class="Form__progress">
+    <p class="Form__progress-step">1</p>
+    <p class="Form__progress-step">2</p>
+    <p class="Form__progress-step">3</p>
+    <p class="Form__progress-step">4</p>
   </section>
-  <section>
-    <h1>Personal Info</h1>
-    <p>Please provide your name, email address, and phone number.</p>
-    <label for="">Name</label>
-    <input type="text" name="" id="" placeholder="e.g Stephen King" />
-    <label for="">Email Address</label>
-    <input type="text" name="" id="" placeholder="e.g stephenking@lorem.com" />
-    <label for="">Phone Number</label>
-    <input type="text" name="" id="" placeholder="e.g +1 234 567 890" />
+  <section class="Step-1">
+    <h1 class="Step-1__h1">Personal Info</h1>
+    <p class="Step-1__p">
+      Please provide your name, email address, and phone number.
+    </p>
+    <div class="Step-1__input-wrapper">
+      <label class="Step-1__label" for="">Name</label>
+      <input
+        class="Step-1__text-input"
+        type="text"
+        name=""
+        id=""
+        placeholder="e.g Stephen King"
+      />
+    </div>
+    <div class="Step-1__input-wrapper">
+      <label class="Step-1__label" for="">Email Address</label>
+      <input
+        class="Step-1__text-input"
+        type="text"
+        name=""
+        id=""
+        placeholder="e.g stephenking@lorem.com"
+      />
+    </div>
+    <div class="Step-1__input-wrapper">
+      <label class="Step-1__label" for="">Phone Number</label>
+      <input
+        class="Step-1__text-input"
+        type="text"
+        name=""
+        id=""
+        placeholder="e.g +1 234 567 890"
+      />
+    </div>
   </section>
-  <section>
-    <h1>Select your Plan</h1>
-    <p>You have the option of monthly or yearly billing.</p>
-    <button>
-      <img src="" alt="" />
-      <h1>Arcade</h1>
-      <p>$9/mo</p>
+  <section class="Step-2">
+    <h1 class="Step-2__h1">Select your Plan</h1>
+    <p class="Step-2__p">You have the option of monthly or yearly billing.</p>
+    <button class="Step-2__button">
+      <img src="./assets/images/icon-arcade.svg" alt="" />
+      <div class="Step-2__button-text-wrapper">
+        <h1 class="Step-2__button-h1">Arcade</h1>
+        <p class="Step-2__button-p">$9/mo</p>
+      </div>
     </button>
-    <button>
-      <img src="" alt="" />
-      <h1>Advanced</h1>
-      <p>$12/mo</p>
+    <button class="Step-2__button">
+      <img src="./assets/images/icon-advanced.svg" alt="" />
+      <div class="Step-2__button-text-wrapper">
+        <h1 class="Step-2__button-h1">Advanced</h1>
+        <p class="Step-2__button-p">$12/mo</p>
+      </div>
     </button>
-    <button>
-      <img src="" alt="" />
-      <h1>Pro</h1>
-      <p>$15/mo</p>
+    <button class="Step-2__button">
+      <img src="./assets/images/icon-pro.svg" alt="" />
+      <div class="Step-2__button-text-wrapper">
+        <h1 class="Step-2__button-h1">Pro</h1>
+        <p class="Step-2__button-p">$15/mo</p>
+      </div>
     </button>
     <section>Monthly <button>Toggle</button> Yearly</section>
   </section>
-  <section>
-    <h1>Pick add-ons</h1>
-    <p>Add-ons help enhance your gaming experience.</p>
-    <button>
-      <img src="" alt="" />
-      <h1>Online service</h1>
-      <p>Access to multiplayer games</p>
+  <section class="Step-3">
+    <h1 class="Step-3__h1">Pick add-ons</h1>
+    <p class="Step-3__p">Add-ons help enhance your gaming experience.</p>
+    <button class="Step-3__button">
+      <div class="Step-3__button-layout-wrapper">
+        <img class="Step-3__checkbox" src="" alt="" />
+        <div class="Step-3__button-text-wrapper">
+          <h1 class="Step-3__button-h1">Online service</h1>
+          <p class="Step-3__button-p">Access to multiplayer games</p>
+        </div>
+      </div>
       <p>+$1/mo</p>
     </button>
-    <button>
-      <img src="" alt="" />
-      <h1>Larger storage</h1>
-      <p>Extra 1TB of cloud save</p>
+    <button class="Step-3__button">
+      <div class="Step-3__button-layout-wrapper">
+        <img class="Step-3__checkbox" src="" alt="" />
+        <div class="Step-3__button-text-wrapper">
+          <h1 class="Step-3__button-h1">Larger storage</h1>
+          <p class="Step-3__button-p">Extra 1TB of cloud save</p>
+        </div>
+      </div>
       <p>+$2/mo</p>
     </button>
-    <button>
-      <img src="" alt="" />
-      <h1>Customizable profile</h1>
-      <p>Custom theme on your profile</p>
+    <button class="Step-3__button">
+      <div class="Step-3__button-layout-wrapper">
+        <img class="Step-3__checkbox" src="" alt="" />
+        <div class="Step-3__button-text-wrapper">
+          <h1 class="Step-3__button-h1">Customizable profile</h1>
+          <p class="Step-3__button-p">Custom theme on your profile</p>
+        </div>
+      </div>
       <p>+$2/mo</p>
     </button>
   </section>
-  <section>
-    <h1>Finishing Up</h1>
-    <p>Double-check everything looks OK before confirming.</p>
+  <section class="Step-4">
+    <h1 class="Step-4__h1">Finishing Up</h1>
+    <p class="Step-4__p">Double-check everything looks OK before confirming.</p>
     <section></section>
     <p>Total (per month)</p>
   </section>
-  <section>
-    <button>Go Back</button>
-    Form Navigation
-    <button>Next Step</button>
+  <section class="Step-5">
+    <img class="Step-5__icon" src="./assets/images/icon-thank-you.svg" alt="" />
+    <h1 class="Step-5__h1">Thank you!</h1>
+    <p class="Step-5__p">
+      Thanks for confirming your subscription! We hope you have fun using our
+      platform. If you ever need support, please feel free to email us at
+      support@loremgaming.com.
+    </p>
+  </section>
+  <section class="Form-Navigation">
+    <button class="Form-Navigation__back">Go Back</button>
+    <button class="Form-Navigation__forward">Next Step</button>
   </section>
 </form>
