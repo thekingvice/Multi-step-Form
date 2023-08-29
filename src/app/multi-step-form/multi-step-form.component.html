@@ -48,24 +48,38 @@
       <img src="./assets/images/icon-arcade.svg" alt="" />
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Arcade</h1>
-        <p class="Step-2__button-p">$9/mo</p>
+        <p class="Step-2__button-p">
+          ${{ isAnnual ? prices.arcade.annually : prices.arcade.monthly }}/{{
+            isAnnual ? "yr" : "mo"
+          }}
+        </p>
       </div>
     </button>
     <button class="Step-2__button">
       <img src="./assets/images/icon-advanced.svg" alt="" />
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Advanced</h1>
-        <p class="Step-2__button-p">$12/mo</p>
+        <p class="Step-2__button-p">
+          ${{
+            isAnnual ? prices.advanced.annually : prices.advanced.monthly
+          }}/{{ isAnnual ? "yr" : "mo" }}
+        </p>
       </div>
     </button>
     <button class="Step-2__button">
       <img src="./assets/images/icon-pro.svg" alt="" />
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Pro</h1>
-        <p class="Step-2__button-p">$15/mo</p>
+        <p class="Step-2__button-p">
+          ${{ isAnnual ? prices.pro.annually : prices.pro.monthly }}/{{
+            isAnnual ? "yr" : "mo"
+          }}
+        </p>
       </div>
     </button>
-    <section>Monthly <button>Toggle</button> Yearly</section>
+    <section>
+      Monthly <button (click)="setIsAnnual($event)">Toggle</button> Yearly
+    </section>
   </section>
   <section class="Step-3">
     <h1 class="Step-3__h1">Pick add-ons</h1>
@@ -78,7 +92,13 @@
           <p class="Step-3__button-p">Access to multiplayer games</p>
         </div>
       </div>
-      <p>+$1/mo</p>
+      <p>
+        +${{
+          isAnnual
+            ? prices.onlineService.annually
+            : prices.onlineService.monthly
+        }}/{{ isAnnual ? "yr" : "mo" }}
+      </p>
     </button>
     <button class="Step-3__button">
       <div class="Step-3__button-layout-wrapper">
@@ -88,7 +108,13 @@
           <p class="Step-3__button-p">Extra 1TB of cloud save</p>
         </div>
       </div>
-      <p>+$2/mo</p>
+      <p>
+        +${{
+          isAnnual
+            ? prices.largerStorage.annually
+            : prices.largerStorage.monthly
+        }}/{{ isAnnual ? "yr" : "mo" }}
+      </p>
     </button>
     <button class="Step-3__button">
       <div class="Step-3__button-layout-wrapper">
@@ -98,7 +124,13 @@
           <p class="Step-3__button-p">Custom theme on your profile</p>
         </div>
       </div>
-      <p>+$2/mo</p>
+      <p>
+        +${{
+          isAnnual
+            ? prices.customizableProfile.annually
+            : prices.customizableProfile.monthly
+        }}/{{ isAnnual ? "yr" : "mo" }}
+      </p>
     </button>
   </section>
   <section class="Step-4">
