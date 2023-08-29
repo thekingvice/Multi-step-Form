@@ -115,6 +115,11 @@
   color: var(--cool-gray);
 }
 
+.Step-2__annual-text {
+  color: var(--marine-blue);
+  font-size: 0.8rem;
+}
+
 .Step-2__switch {
   background: var(--marine-blue);
   width: 3rem;
@@ -182,9 +187,13 @@
   width: 1.5rem;
   border: 1px solid var(--cool-gray);
   border-radius: 0.25rem;
-  content: url(src/assets/images/icon-checkmark.svg);
   background: var(--purplish-blue);
   padding: 0.25rem;
+}
+
+.Step-3__check {
+  width: 1rem;
+  height: 1rem;
 }
 
 .Step-3__button-layout-wrapper {
@@ -204,6 +213,10 @@
 
 .Step-3__button-p {
   color: var(--cool-gray);
+}
+
+.Step-3__button-price {
+  color: var(--purplish-blue);
 }
 
 /* Step 4 */

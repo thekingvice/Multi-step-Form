@@ -44,7 +44,14 @@
   <section class="Step-2">
     <h1 class="Step-2__h1">Select your Plan</h1>
     <p class="Step-2__p">You have the option of monthly or yearly billing.</p>
-    <button class="Step-2__button">
+    <button
+      class="Step-2__button"
+      (click)="setPlan($event, 0)"
+      [ngStyle]="{
+        background: plans[0] ? 'var(--pastel-blue)' : '',
+        borderColor: plans[0] ? 'var(--purplish-blue)' : ''
+      }"
+    >
       <img src="./assets/images/icon-arcade.svg" alt="" />
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Arcade</h1>
@@ -53,9 +60,22 @@
             isAnnual ? "yr" : "mo"
           }}
         </p>
+        <p
+          class="Step-2__annual-text"
+          [ngStyle]="{ display: isAnnual ? '' : 'none' }"
+        >
+          2 months free
+        </p>
       </div>
     </button>
-    <button class="Step-2__button">
+    <button
+      class="Step-2__button"
+      (click)="setPlan($event, 1)"
+      [ngStyle]="{
+        background: plans[1] ? 'var(--pastel-blue)' : '',
+        borderColor: plans[1] ? 'var(--purplish-blue)' : ''
+      }"
+    >
       <img src="./assets/images/icon-advanced.svg" alt="" />
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Advanced</h1>
@@ -64,9 +84,22 @@
             isAnnual ? prices.advanced.annually : prices.advanced.monthly
           }}/{{ isAnnual ? "yr" : "mo" }}
         </p>
+        <p
+          class="Step-2__annual-text"
+          [ngStyle]="{ display: isAnnual ? '' : 'none' }"
+        >
+          2 months free
+        </p>
       </div>
     </button>
-    <button class="Step-2__button">
+    <button
+      class="Step-2__button"
+      (click)="setPlan($event, 2)"
+      [ngStyle]="{
+        background: plans[2] ? 'var(--pastel-blue)' : '',
+        borderColor: plans[2] ? 'var(--purplish-blue)' : ''
+      }"
+    >
       <img src="./assets/images/icon-pro.svg" alt="" />
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Pro</h1>
@@ -74,6 +107,12 @@
           ${{ isAnnual ? prices.pro.annually : prices.pro.monthly }}/{{
             isAnnual ? "yr" : "mo"
           }}
+        </p>
+        <p
+          class="Step-2__annual-text"
+          [ngStyle]="{ display: isAnnual ? '' : 'none' }"
+        >
+          2 months free
         </p>
       </div>
     </button>
@@ -105,13 +144,19 @@
     <p class="Step-3__p">Add-ons help enhance your gaming experience.</p>
     <button class="Step-3__button">
       <div class="Step-3__button-layout-wrapper">
-        <img class="Step-3__checkbox" src="" alt="" />
+        <div class="Step-3__checkbox">
+          <img
+            class="Step-3__check"
+            src="./assets/images/icon-checkmark.svg"
+            alt=""
+          />
+        </div>
         <div class="Step-3__button-text-wrapper">
           <h1 class="Step-3__button-h1">Online service</h1>
           <p class="Step-3__button-p">Access to multiplayer games</p>
         </div>
       </div>
-      <p>
+      <p class="Step-3__button-price">
         +${{
           isAnnual
             ? prices.onlineService.annually
@@ -121,13 +166,19 @@
     </button>
     <button class="Step-3__button">
       <div class="Step-3__button-layout-wrapper">
-        <img class="Step-3__checkbox" src="" alt="" />
+        <div class="Step-3__checkbox">
+          <img
+            class="Step-3__check"
+            src="./assets/images/icon-checkmark.svg"
+            alt=""
+          />
+        </div>
         <div class="Step-3__button-text-wrapper">
           <h1 class="Step-3__button-h1">Larger storage</h1>
           <p class="Step-3__button-p">Extra 1TB of cloud save</p>
         </div>
       </div>
-      <p>
+      <p class="Step-3__button-price">
         +${{
           isAnnual
             ? prices.largerStorage.annually
@@ -137,13 +188,19 @@
     </button>
     <button class="Step-3__button">
       <div class="Step-3__button-layout-wrapper">
-        <img class="Step-3__checkbox" src="" alt="" />
+        <div class="Step-3__checkbox">
+          <img
+            class="Step-3__check"
+            src="./assets/images/icon-checkmark.svg"
+            alt=""
+          />
+        </div>
         <div class="Step-3__button-text-wrapper">
           <h1 class="Step-3__button-h1">Customizable profile</h1>
           <p class="Step-3__button-p">Custom theme on your profile</p>
         </div>
       </div>
-      <p>
+      <p class="Step-3__button-price">
         +${{
           isAnnual
             ? prices.customizableProfile.annually

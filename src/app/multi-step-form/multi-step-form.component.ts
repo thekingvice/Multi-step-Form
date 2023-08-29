@@ -17,6 +17,19 @@ export class MultiStepFormComponent {
     customizableProfile: { monthly: 2, annually: 20 },
   };
 
+  plans = [false, false, false];
+
+  addOns = [false, false, false];
+
+  setPlan(event: Event, plan: number) {
+    event.preventDefault();
+    for (let i = 0; i < this.plans.length; i++) {
+      this.plans[i] = false;
+    }
+    this.plans[plan] = true;
+    console.log(this.plans[plan]);
+  }
+
   setIsAnnual(event: Event) {
     event.preventDefault();
     this.isAnnual = !this.isAnnual;
