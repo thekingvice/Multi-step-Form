@@ -77,8 +77,27 @@
         </p>
       </div>
     </button>
-    <section>
-      Monthly <button (click)="setIsAnnual($event)">Toggle</button> Yearly
+    <section class="Step-2__switch-wrapper">
+      <p
+        [ngStyle]="{
+          color: isAnnual ? 'var(--cool-gray)' : 'var(--marine-blue)'
+        }"
+      >
+        Monthly
+      </p>
+      <button class="Step-2__switch" (click)="setIsAnnual($event)">
+        <div
+          class="Step-2__switch-slider"
+          [ngStyle]="{ marginLeft: isAnnual ? '1.5rem' : '' }"
+        ></div>
+      </button>
+      <p
+        [ngStyle]="{
+          color: isAnnual ? 'var(--marine-blue)' : 'var(--cool-gray)'
+        }"
+      >
+        Yearly
+      </p>
     </section>
   </section>
   <section class="Step-3">
