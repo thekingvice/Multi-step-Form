@@ -34,4 +34,10 @@ export class MultiStepFormComponent {
     event.preventDefault();
     this.isAnnual = !this.isAnnual;
   }
+
+  setAddon(event: Event, index: number) {
+    event.preventDefault();
+    this.addOns[index] = !this.addOns[index];
+    console.log(this.addOns);
+  }
 }

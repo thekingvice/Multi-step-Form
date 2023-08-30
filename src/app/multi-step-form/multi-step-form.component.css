@@ -187,7 +187,7 @@
   width: 1.5rem;
   border: 1px solid var(--cool-gray);
   border-radius: 0.25rem;
-  background: var(--purplish-blue);
+  /* background: var(--purplish-blue); */
   padding: 0.25rem;
 }
 

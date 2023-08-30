@@ -142,9 +142,19 @@
   <section class="Step-3">
     <h1 class="Step-3__h1">Pick add-ons</h1>
     <p class="Step-3__p">Add-ons help enhance your gaming experience.</p>
-    <button class="Step-3__button">
+    <button
+      class="Step-3__button"
+      (click)="setAddon($event, 0)"
+      [ngStyle]="{
+        background: addOns[0] ? 'var(--pastel-blue)' : '',
+        borderColor: addOns[0] ? 'var(--purplish-blue)' : ''
+      }"
+    >
       <div class="Step-3__button-layout-wrapper">
-        <div class="Step-3__checkbox">
+        <div
+          class="Step-3__checkbox"
+          [ngStyle]="{ background: addOns[0] ? 'var(--purplish-blue)' : '' }"
+        >
           <img
             class="Step-3__check"
             src="./assets/images/icon-checkmark.svg"
@@ -164,9 +174,19 @@
         }}/{{ isAnnual ? "yr" : "mo" }}
       </p>
     </button>
-    <button class="Step-3__button">
+    <button
+      class="Step-3__button"
+      (click)="setAddon($event, 1)"
+      [ngStyle]="{
+        background: addOns[1] ? 'var(--pastel-blue)' : '',
+        borderColor: addOns[1] ? 'var(--purplish-blue)' : ''
+      }"
+    >
       <div class="Step-3__button-layout-wrapper">
-        <div class="Step-3__checkbox">
+        <div
+          class="Step-3__checkbox"
+          [ngStyle]="{ background: addOns[1] ? 'var(--purplish-blue)' : '' }"
+        >
           <img
             class="Step-3__check"
             src="./assets/images/icon-checkmark.svg"
@@ -186,9 +206,19 @@
         }}/{{ isAnnual ? "yr" : "mo" }}
       </p>
     </button>
-    <button class="Step-3__button">
+    <button
+      class="Step-3__button"
+      (click)="setAddon($event, 2)"
+      [ngStyle]="{
+        background: addOns[2] ? 'var(--pastel-blue)' : '',
+        borderColor: addOns[2] ? 'var(--purplish-blue)' : ''
+      }"
+    >
       <div class="Step-3__button-layout-wrapper">
-        <div class="Step-3__checkbox">
+        <div
+          class="Step-3__checkbox"
+          [ngStyle]="{ background: addOns[2] ? 'var(--purplish-blue)' : '' }"
+        >
           <img
             class="Step-3__check"
             src="./assets/images/icon-checkmark.svg"
