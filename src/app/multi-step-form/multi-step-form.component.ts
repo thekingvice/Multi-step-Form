@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-multi-step-form',
@@ -6,6 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./multi-step-form.component.css'],
 })
 export class MultiStepFormComponent {
+  multiStepForm = new FormGroup({
+    name: new FormControl(''),
+    email: new FormControl(''),
+    phone: new FormControl(''),
+    plans: new FormGroup({
+      arcade: new FormControl(false),
+      advanced: new FormControl(false),
+      pro: new FormControl(false),
+    }),
+    addOns: new FormGroup({
+      onlineService: new FormControl(false),
+      largerStorage: new FormControl(false),
+      customizableProfile: new FormControl(false),
+    }),
+  });
+
   isAnnual = false;
 
   prices = {
@@ -39,5 +56,9 @@ export class MultiStepFormComponent {
     event.preventDefault();
     this.addOns[index] = !this.addOns[index];
     console.log(this.addOns);
+  }
+
+  test() {
+    console.log(this.multiStepForm);
   }
 }

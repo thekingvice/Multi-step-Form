@@ -1,4 +1,5 @@
-<form class="Form">
+<div (click)="test()">Test</div>
+<form class="Form" [formGroup]="multiStepForm">
   <section class="Form__progress">
     <p class="Form__progress-step">1</p>
     <p class="Form__progress-step">2</p>
@@ -11,13 +12,14 @@
       Please provide your name, email address, and phone number.
     </p>
     <div class="Step-1__input-wrapper">
-      <label class="Step-1__label" for="">Name</label>
+      <label class="Step-1__label" for="name">Name</label>
       <input
         class="Step-1__text-input"
         type="text"
-        name=""
-        id=""
+        name="name"
+        id="name"
         placeholder="e.g Stephen King"
+        formControlName="name"
       />
     </div>
     <div class="Step-1__input-wrapper">
