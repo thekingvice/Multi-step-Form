@@ -37,15 +37,15 @@ export class MultiStepFormComponent {
 
   plan = '';
 
-  plans = [false, false, false];
+  // plans = [false, false, false];
 
   addOns = [false, false, false];
 
-  setPlan(plan: number) {
-    this.plans = [false, false, false];
-    this.plans[plan] = true;
-    console.log(this.plans);
-  }
+  // setPlan(plan: number) {
+  //   this.plans = [false, false, false];
+  //   this.plans[plan] = true;
+  //   console.log(this.plans);
+  // }
 
   changePlan(plan: string) {
     this.plan = plan;

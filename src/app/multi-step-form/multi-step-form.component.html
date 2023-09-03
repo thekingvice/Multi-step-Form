@@ -52,10 +52,14 @@
     <p class="Step-2__p">You have the option of monthly or yearly billing.</p>
     <div
       class="Step-2__button"
-      (click)="setPlan(0); setRadioPlan('arcade')"
+      (click)="setRadioPlan('arcade')"
       [ngStyle]="{
-        background: plans[0] ? 'var(--pastel-blue)' : '',
-        borderColor: plans[0] ? 'var(--purplish-blue)' : ''
+        background: multiStepForm.value.plans?.arcade
+          ? 'var(--pastel-blue)'
+          : '',
+        borderColor: multiStepForm.value.plans?.arcade
+          ? 'var(--purplish-blue)'
+          : ''
       }"
     >
       <img src="./assets/images/icon-arcade.svg" alt="" />
@@ -77,10 +81,14 @@
     <!-- <input type="radio" name="plan" id="arcade" formControlName="arcade" /> -->
     <div
       class="Step-2__button"
-      (click)="setPlan(1); setRadioPlan('advanced')"
+      (click)="setRadioPlan('advanced')"
       [ngStyle]="{
-        background: plans[1] ? 'var(--pastel-blue)' : '',
-        borderColor: plans[1] ? 'var(--purplish-blue)' : ''
+        background: multiStepForm.value.plans?.advanced
+          ? 'var(--pastel-blue)'
+          : '',
+        borderColor: multiStepForm.value.plans?.advanced
+          ? 'var(--purplish-blue)'
+          : ''
       }"
     >
       <img src="./assets/images/icon-advanced.svg" alt="" />
@@ -102,10 +110,12 @@
     <!-- <input type="radio" name="plan" id="advanced" formControlName="advanced" /> -->
     <div
       class="Step-2__button"
-      (click)="setPlan(2); setRadioPlan('pro')"
+      (click)="setRadioPlan('pro')"
       [ngStyle]="{
-        background: plans[2] ? 'var(--pastel-blue)' : '',
-        borderColor: plans[2] ? 'var(--purplish-blue)' : ''
+        background: multiStepForm.value.plans?.pro ? 'var(--pastel-blue)' : '',
+        borderColor: multiStepForm.value.plans?.pro
+          ? 'var(--purplish-blue)'
+          : ''
       }"
     >
       <img src="./assets/images/icon-pro.svg" alt="" />
