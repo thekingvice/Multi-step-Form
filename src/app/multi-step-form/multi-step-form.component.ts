@@ -12,16 +12,14 @@ export class MultiStepFormComponent {
     name: new FormControl(''),
     email: new FormControl(''),
     phone: new FormControl(''),
-    plans: new FormGroup({
-      arcade: new FormControl(false),
-      advanced: new FormControl(false),
-      pro: new FormControl(false),
-    }),
-    addOns: new FormGroup({
-      onlineService: new FormControl(false),
-      largerStorage: new FormControl(false),
-      customizableProfile: new FormControl(false),
-    }),
+    // plans
+    arcade: new FormControl(false),
+    advanced: new FormControl(false),
+    pro: new FormControl(false),
+    // add-ons
+    onlineService: new FormControl(false),
+    largerStorage: new FormControl(false),
+    customizableProfile: new FormControl(false),
   });
 
   isAnnual = false;
@@ -35,6 +33,8 @@ export class MultiStepFormComponent {
     customizableProfile: { monthly: 2, annually: 20 },
   };
 
+  plan = '';
+
   plans = [false, false, false];
 
   addOns = [false, false, false];
@@ -43,6 +43,10 @@ export class MultiStepFormComponent {
     this.plans = [false, false, false];
     this.plans[plan] = true;
     console.log(this.plans);
+  }
+
+  changePlan(plan: string) {
+    this.plan = plan;
   }
 
   setIsAnnual() {
