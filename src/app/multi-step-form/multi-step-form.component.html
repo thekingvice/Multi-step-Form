@@ -1,3 +1,5 @@
+<!-- work on hidden radio buttons -->
+
 <div (click)="test()">Test</div>
 <form class="Form" [formGroup]="multiStepForm">
   <section class="Form__progress">
@@ -23,32 +25,34 @@
       />
     </div>
     <div class="Step-1__input-wrapper">
-      <label class="Step-1__label" for="">Email Address</label>
+      <label class="Step-1__label" for="email">Email Address</label>
       <input
         class="Step-1__text-input"
         type="text"
-        name=""
-        id=""
+        name="email"
+        id="email"
         placeholder="e.g stephenking@lorem.com"
+        formControlName="email"
       />
     </div>
     <div class="Step-1__input-wrapper">
-      <label class="Step-1__label" for="">Phone Number</label>
+      <label class="Step-1__label" for="phone">Phone Number</label>
       <input
         class="Step-1__text-input"
-        type="text"
-        name=""
-        id=""
+        type="tel"
+        name="phone"
+        id="phone"
         placeholder="e.g +1 234 567 890"
+        formControlName="phone"
       />
     </div>
   </section>
   <section class="Step-2">
     <h1 class="Step-2__h1">Select your Plan</h1>
     <p class="Step-2__p">You have the option of monthly or yearly billing.</p>
-    <button
+    <div
       class="Step-2__button"
-      (click)="setPlan($event, 0)"
+      (click)="setPlan(0)"
       [ngStyle]="{
         background: plans[0] ? 'var(--pastel-blue)' : '',
         borderColor: plans[0] ? 'var(--purplish-blue)' : ''
@@ -69,10 +73,10 @@
           2 months free
         </p>
       </div>
-    </button>
-    <button
+    </div>
+    <div
       class="Step-2__button"
-      (click)="setPlan($event, 1)"
+      (click)="setPlan(1)"
       [ngStyle]="{
         background: plans[1] ? 'var(--pastel-blue)' : '',
         borderColor: plans[1] ? 'var(--purplish-blue)' : ''
@@ -93,10 +97,10 @@
           2 months free
         </p>
       </div>
-    </button>
-    <button
+    </div>
+    <div
       class="Step-2__button"
-      (click)="setPlan($event, 2)"
+      (click)="setPlan(2)"
       [ngStyle]="{
         background: plans[2] ? 'var(--pastel-blue)' : '',
         borderColor: plans[2] ? 'var(--purplish-blue)' : ''
@@ -117,7 +121,7 @@
           2 months free
         </p>
       </div>
-    </button>
+    </div>
     <section class="Step-2__switch-wrapper">
       <p
         [ngStyle]="{
@@ -126,12 +130,12 @@
       >
         Monthly
       </p>
-      <button class="Step-2__switch" (click)="setIsAnnual($event)">
+      <div class="Step-2__switch" (click)="setIsAnnual()">
         <div
           class="Step-2__switch-slider"
           [ngStyle]="{ marginLeft: isAnnual ? '1.5rem' : '' }"
         ></div>
-      </button>
+      </div>
       <p
         [ngStyle]="{
           color: isAnnual ? 'var(--marine-blue)' : 'var(--cool-gray)'
@@ -144,9 +148,9 @@
   <section class="Step-3">
     <h1 class="Step-3__h1">Pick add-ons</h1>
     <p class="Step-3__p">Add-ons help enhance your gaming experience.</p>
-    <button
+    <div
       class="Step-3__button"
-      (click)="setAddon($event, 0)"
+      (click)="setAddon(0)"
       [ngStyle]="{
         background: addOns[0] ? 'var(--pastel-blue)' : '',
         borderColor: addOns[0] ? 'var(--purplish-blue)' : ''
@@ -175,10 +179,10 @@
             : prices.onlineService.monthly
         }}/{{ isAnnual ? "yr" : "mo" }}
       </p>
-    </button>
-    <button
+    </div>
+    <div
       class="Step-3__button"
-      (click)="setAddon($event, 1)"
+      (click)="setAddon(1)"
       [ngStyle]="{
         background: addOns[1] ? 'var(--pastel-blue)' : '',
         borderColor: addOns[1] ? 'var(--purplish-blue)' : ''
@@ -207,10 +211,10 @@
             : prices.largerStorage.monthly
         }}/{{ isAnnual ? "yr" : "mo" }}
       </p>
-    </button>
-    <button
+    </div>
+    <div
       class="Step-3__button"
-      (click)="setAddon($event, 2)"
+      (click)="setAddon(2)"
       [ngStyle]="{
         background: addOns[2] ? 'var(--pastel-blue)' : '',
         borderColor: addOns[2] ? 'var(--purplish-blue)' : ''
@@ -239,7 +243,7 @@
             : prices.customizableProfile.monthly
         }}/{{ isAnnual ? "yr" : "mo" }}
       </p>
-    </button>
+    </div>
   </section>
   <section class="Step-4">
     <h1 class="Step-4__h1">Finishing Up</h1>

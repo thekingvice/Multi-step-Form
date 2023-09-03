@@ -8,6 +8,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class MultiStepFormComponent {
   multiStepForm = new FormGroup({
+    isAnnual: new FormControl(false),
     name: new FormControl(''),
     email: new FormControl(''),
     phone: new FormControl(''),
@@ -38,22 +39,18 @@ export class MultiStepFormComponent {
 
   addOns = [false, false, false];
 
-  setPlan(event: Event, plan: number) {
-    event.preventDefault();
-    for (let i = 0; i < this.plans.length; i++) {
-      this.plans[i] = false;
-    }
+  setPlan(plan: number) {
+    this.plans = [false, false, false];
     this.plans[plan] = true;
-    console.log(this.plans[plan]);
+    console.log(this.plans);
   }
 
-  setIsAnnual(event: Event) {
-    event.preventDefault();
+  setIsAnnual() {
     this.isAnnual = !this.isAnnual;
+    console.log(this.isAnnual);
   }
 
-  setAddon(event: Event, index: number) {
-    event.preventDefault();
+  setAddon(index: number) {
     this.addOns[index] = !this.addOns[index];
     console.log(this.addOns);
   }
