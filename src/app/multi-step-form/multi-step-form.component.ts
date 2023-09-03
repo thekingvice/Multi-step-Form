@@ -13,9 +13,11 @@ export class MultiStepFormComponent {
     email: new FormControl(''),
     phone: new FormControl(''),
     // plans
-    arcade: new FormControl(false),
-    advanced: new FormControl(false),
-    pro: new FormControl(false),
+    plans: new FormGroup({
+      arcade: new FormControl(false),
+      advanced: new FormControl(false),
+      pro: new FormControl(false),
+    }),
     // add-ons
     onlineService: new FormControl(false),
     largerStorage: new FormControl(false),
@@ -59,7 +61,15 @@ export class MultiStepFormComponent {
     console.log(this.addOns);
   }
 
+  setRadioPlan(controlName: string) {
+    const planForm = this.multiStepForm.get('plans') as FormGroup;
+    const control = planForm.get(controlName);
+    planForm.reset();
+    control?.setValue(true);
+    this.test();
+  }
+
   test() {
-    console.log(this.multiStepForm);
+    console.log(this.multiStepForm.value.plans);
   }
 }

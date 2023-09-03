@@ -52,7 +52,7 @@
     <p class="Step-2__p">You have the option of monthly or yearly billing.</p>
     <div
       class="Step-2__button"
-      (click)="setPlan(0)"
+      (click)="setPlan(0); setRadioPlan('arcade')"
       [ngStyle]="{
         background: plans[0] ? 'var(--pastel-blue)' : '',
         borderColor: plans[0] ? 'var(--purplish-blue)' : ''
@@ -74,10 +74,10 @@
         </p>
       </div>
     </div>
-    <input type="radio" name="plan" id="arcade" formControlName="arcade" />
+    <!-- <input type="radio" name="plan" id="arcade" formControlName="arcade" /> -->
     <div
       class="Step-2__button"
-      (click)="setPlan(1)"
+      (click)="setPlan(1); setRadioPlan('advanced')"
       [ngStyle]="{
         background: plans[1] ? 'var(--pastel-blue)' : '',
         borderColor: plans[1] ? 'var(--purplish-blue)' : ''
@@ -99,10 +99,10 @@
         </p>
       </div>
     </div>
-    <input type="radio" name="plan" id="advanced" formControlName="advanced" />
+    <!-- <input type="radio" name="plan" id="advanced" formControlName="advanced" /> -->
     <div
       class="Step-2__button"
-      (click)="setPlan(2)"
+      (click)="setPlan(2); setRadioPlan('pro')"
       [ngStyle]="{
         background: plans[2] ? 'var(--pastel-blue)' : '',
         borderColor: plans[2] ? 'var(--purplish-blue)' : ''
@@ -124,7 +124,7 @@
         </p>
       </div>
     </div>
-    <input type="radio" name="plan" id="pro" formControlName="pro" />
+    <!-- <input type="radio" name="plan" id="pro" formControlName="pro" /> -->
     <section class="Step-2__switch-wrapper">
       <p
         [ngStyle]="{
