@@ -19,9 +19,11 @@ export class MultiStepFormComponent {
       pro: new FormControl(false),
     }),
     // add-ons
-    onlineService: new FormControl(false),
-    largerStorage: new FormControl(false),
-    customizableProfile: new FormControl(false),
+    addOns: new FormGroup({
+      onlineService: new FormControl(false),
+      largerStorage: new FormControl(false),
+      customizableProfile: new FormControl(false),
+    }),
   });
 
   isAnnual = false;
@@ -35,11 +37,11 @@ export class MultiStepFormComponent {
     customizableProfile: { monthly: 2, annually: 20 },
   };
 
-  plan = '';
+  // plan = '';
 
   // plans = [false, false, false];
 
-  addOns = [false, false, false];
+  // addOns = [false, false, false];
 
   // setPlan(plan: number) {
   //   this.plans = [false, false, false];
@@ -47,19 +49,19 @@ export class MultiStepFormComponent {
   //   console.log(this.plans);
   // }
 
-  changePlan(plan: string) {
-    this.plan = plan;
-  }
+  // changePlan(plan: string) {
+  //   this.plan = plan;
+  // }
 
   setIsAnnual() {
     this.isAnnual = !this.isAnnual;
     console.log(this.isAnnual);
   }
 
-  setAddon(index: number) {
-    this.addOns[index] = !this.addOns[index];
-    console.log(this.addOns);
-  }
+  // setAddon(index: number) {
+  //   this.addOns[index] = !this.addOns[index];
+  //   console.log(this.addOns);
+  // }
 
   setRadioPlan(controlName: string) {
     const planForm = this.multiStepForm.get('plans') as FormGroup;
@@ -69,7 +71,14 @@ export class MultiStepFormComponent {
     this.test();
   }
 
+  setRadioAddon(controlName: string) {
+    const addOnsForm = this.multiStepForm.get('addOns') as FormGroup;
+    const control = addOnsForm.get(controlName);
+    control?.setValue(!control?.value);
+    this.test();
+  }
+
   test() {
-    console.log(this.multiStepForm.value.plans);
+    console.log(this.multiStepForm.value.addOns);
   }
 }

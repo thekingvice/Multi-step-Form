@@ -163,16 +163,24 @@
     <p class="Step-3__p">Add-ons help enhance your gaming experience.</p>
     <div
       class="Step-3__button"
-      (click)="setAddon(0)"
+      (click)="setRadioAddon('onlineService')"
       [ngStyle]="{
-        background: addOns[0] ? 'var(--pastel-blue)' : '',
-        borderColor: addOns[0] ? 'var(--purplish-blue)' : ''
+        background: multiStepForm.value.addOns?.onlineService
+          ? 'var(--pastel-blue)'
+          : '',
+        borderColor: multiStepForm.value.addOns?.onlineService
+          ? 'var(--purplish-blue)'
+          : ''
       }"
     >
       <div class="Step-3__button-layout-wrapper">
         <div
           class="Step-3__checkbox"
-          [ngStyle]="{ background: addOns[0] ? 'var(--purplish-blue)' : '' }"
+          [ngStyle]="{
+            background: multiStepForm.value.addOns?.onlineService
+              ? 'var(--purplish-blue)'
+              : ''
+          }"
         >
           <img
             class="Step-3__check"
@@ -195,16 +203,24 @@
     </div>
     <div
       class="Step-3__button"
-      (click)="setAddon(1)"
+      (click)="setRadioAddon('largerStorage')"
       [ngStyle]="{
-        background: addOns[1] ? 'var(--pastel-blue)' : '',
-        borderColor: addOns[1] ? 'var(--purplish-blue)' : ''
+        background: multiStepForm.value.addOns?.largerStorage
+          ? 'var(--pastel-blue)'
+          : '',
+        borderColor: multiStepForm.value.addOns?.largerStorage
+          ? 'var(--purplish-blue)'
+          : ''
       }"
     >
       <div class="Step-3__button-layout-wrapper">
         <div
           class="Step-3__checkbox"
-          [ngStyle]="{ background: addOns[1] ? 'var(--purplish-blue)' : '' }"
+          [ngStyle]="{
+            background: multiStepForm.value.addOns?.largerStorage
+              ? 'var(--purplish-blue)'
+              : ''
+          }"
         >
           <img
             class="Step-3__check"
@@ -227,16 +243,24 @@
     </div>
     <div
       class="Step-3__button"
-      (click)="setAddon(2)"
+      (click)="setRadioAddon('customizableProfile')"
       [ngStyle]="{
-        background: addOns[2] ? 'var(--pastel-blue)' : '',
-        borderColor: addOns[2] ? 'var(--purplish-blue)' : ''
+        background: multiStepForm.value.addOns?.customizableProfile
+          ? 'var(--pastel-blue)'
+          : '',
+        borderColor: multiStepForm.value.addOns?.customizableProfile
+          ? 'var(--purplish-blue)'
+          : ''
       }"
     >
       <div class="Step-3__button-layout-wrapper">
         <div
           class="Step-3__checkbox"
-          [ngStyle]="{ background: addOns[2] ? 'var(--purplish-blue)' : '' }"
+          [ngStyle]="{
+            background: multiStepForm.value.addOns?.customizableProfile
+              ? 'var(--purplish-blue)'
+              : ''
+          }"
         >
           <img
             class="Step-3__check"
