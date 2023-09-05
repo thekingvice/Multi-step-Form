@@ -26,7 +26,7 @@ export class MultiStepFormComponent {
     }),
   });
 
-  isAnnual = false;
+  // isAnnual = false;
 
   prices = {
     arcade: { monthly: 9, annually: 90 },
@@ -54,8 +54,8 @@ export class MultiStepFormComponent {
   // }
 
   setIsAnnual() {
-    this.isAnnual = !this.isAnnual;
-    console.log(this.isAnnual);
+    this.multiStepForm.value.isAnnual = !this.multiStepForm.value.isAnnual;
+    console.log(this.multiStepForm.value);
   }
 
   // setAddon(index: number) {
@@ -80,5 +80,21 @@ export class MultiStepFormComponent {
 
   test() {
     console.log(this.multiStepForm.value.addOns);
+  }
+
+  total() {
+    let nums = [];
+
+    let total = 0;
+
+    if (this.multiStepForm.value.plans?.arcade) {
+      nums.push(this.prices.arcade.monthly);
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+      total += nums[i];
+    }
+
+    return total;
   }
 }

@@ -66,13 +66,15 @@
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Arcade</h1>
         <p class="Step-2__button-p">
-          ${{ isAnnual ? prices.arcade.annually : prices.arcade.monthly }}/{{
-            isAnnual ? "yr" : "mo"
-          }}
+          ${{
+            multiStepForm.value.isAnnual
+              ? prices.arcade.annually
+              : prices.arcade.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
         </p>
         <p
           class="Step-2__annual-text"
-          [ngStyle]="{ display: isAnnual ? '' : 'none' }"
+          [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
         >
           2 months free
         </p>
@@ -96,12 +98,14 @@
         <h1 class="Step-2__button-h1">Advanced</h1>
         <p class="Step-2__button-p">
           ${{
-            isAnnual ? prices.advanced.annually : prices.advanced.monthly
-          }}/{{ isAnnual ? "yr" : "mo" }}
+            multiStepForm.value.isAnnual
+              ? prices.advanced.annually
+              : prices.advanced.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
         </p>
         <p
           class="Step-2__annual-text"
-          [ngStyle]="{ display: isAnnual ? '' : 'none' }"
+          [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
         >
           2 months free
         </p>
@@ -122,13 +126,15 @@
       <div class="Step-2__button-text-wrapper">
         <h1 class="Step-2__button-h1">Pro</h1>
         <p class="Step-2__button-p">
-          ${{ isAnnual ? prices.pro.annually : prices.pro.monthly }}/{{
-            isAnnual ? "yr" : "mo"
-          }}
+          ${{
+            multiStepForm.value.isAnnual
+              ? prices.pro.annually
+              : prices.pro.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
         </p>
         <p
           class="Step-2__annual-text"
-          [ngStyle]="{ display: isAnnual ? '' : 'none' }"
+          [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
         >
           2 months free
         </p>
@@ -138,7 +144,9 @@
     <section class="Step-2__switch-wrapper">
       <p
         [ngStyle]="{
-          color: isAnnual ? 'var(--cool-gray)' : 'var(--marine-blue)'
+          color: multiStepForm.value.isAnnual
+            ? 'var(--cool-gray)'
+            : 'var(--marine-blue)'
         }"
       >
         Monthly
@@ -146,12 +154,16 @@
       <div class="Step-2__switch" (click)="setIsAnnual()">
         <div
           class="Step-2__switch-slider"
-          [ngStyle]="{ marginLeft: isAnnual ? '1.5rem' : '' }"
+          [ngStyle]="{
+            marginLeft: multiStepForm.value.isAnnual ? '1.4rem' : ''
+          }"
         ></div>
       </div>
       <p
         [ngStyle]="{
-          color: isAnnual ? 'var(--marine-blue)' : 'var(--cool-gray)'
+          color: multiStepForm.value.isAnnual
+            ? 'var(--marine-blue)'
+            : 'var(--cool-gray)'
         }"
       >
         Yearly
@@ -195,10 +207,10 @@
       </div>
       <p class="Step-3__button-price">
         +${{
-          isAnnual
+          multiStepForm.value.isAnnual
             ? prices.onlineService.annually
             : prices.onlineService.monthly
-        }}/{{ isAnnual ? "yr" : "mo" }}
+        }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
       </p>
     </div>
     <div
@@ -235,10 +247,10 @@
       </div>
       <p class="Step-3__button-price">
         +${{
-          isAnnual
+          multiStepForm.value.isAnnual
             ? prices.largerStorage.annually
             : prices.largerStorage.monthly
-        }}/{{ isAnnual ? "yr" : "mo" }}
+        }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
       </p>
     </div>
     <div
@@ -275,18 +287,85 @@
       </div>
       <p class="Step-3__button-price">
         +${{
-          isAnnual
+          multiStepForm.value.isAnnual
             ? prices.customizableProfile.annually
             : prices.customizableProfile.monthly
-        }}/{{ isAnnual ? "yr" : "mo" }}
+        }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
       </p>
     </div>
   </section>
   <section class="Step-4">
     <h1 class="Step-4__h1">Finishing Up</h1>
     <p class="Step-4__p">Double-check everything looks OK before confirming.</p>
-    <section></section>
-    <p>Total (per month)</p>
+    <section>
+      <div *ngIf="multiStepForm.value.plans?.arcade">
+        <p>
+          Arcade ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
+        </p>
+        <p>
+          ${{
+            multiStepForm.value.isAnnual
+              ? prices.arcade.annually
+              : prices.arcade.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+        </p>
+      </div>
+      <div *ngIf="multiStepForm.value.plans?.advanced">
+        <p>
+          Advanced ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
+        </p>
+        <p>
+          ${{
+            multiStepForm.value.isAnnual
+              ? prices.advanced.annually
+              : prices.advanced.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+        </p>
+      </div>
+      <div *ngIf="multiStepForm.value.plans?.pro">
+        <p>Pro ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})</p>
+        <p>
+          ${{
+            multiStepForm.value.isAnnual
+              ? prices.pro.annually
+              : prices.pro.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+        </p>
+      </div>
+      <div>______________________________</div>
+      <div *ngIf="multiStepForm.value.addOns?.onlineService">
+        <p>Online service</p>
+        <p>
+          +${{
+            multiStepForm.value.isAnnual
+              ? prices.onlineService.annually
+              : prices.onlineService.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+        </p>
+      </div>
+      <div *ngIf="multiStepForm.value.addOns?.largerStorage">
+        <p>Larger storage</p>
+        <p>
+          +${{
+            multiStepForm.value.isAnnual
+              ? prices.largerStorage.annually
+              : prices.largerStorage.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+        </p>
+      </div>
+      <div *ngIf="multiStepForm.value.addOns?.customizableProfile">
+        <p>Customizable Profile</p>
+        <p>
+          +${{
+            multiStepForm.value.isAnnual
+              ? prices.customizableProfile.annually
+              : prices.customizableProfile.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+        </p>
+      </div>
+    </section>
+    <p>Total (per {{ multiStepForm.value.isAnnual ? "year" : "month" }})</p>
+    <p>{{ total() }}</p>
   </section>
   <section class="Step-5">
     <img class="Step-5__icon" src="./assets/images/icon-thank-you.svg" alt="" />
