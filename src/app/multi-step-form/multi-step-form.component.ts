@@ -24,6 +24,9 @@ export class MultiStepFormComponent {
       largerStorage: new FormControl(false),
       customizableProfile: new FormControl(false),
     }),
+    arcade: new FormControl(false),
+    advanced: new FormControl(false),
+    pro: new FormControl(false),
   });
 
   // isAnnual = false;
@@ -54,8 +57,7 @@ export class MultiStepFormComponent {
   // }
 
   setIsAnnual() {
-    this.multiStepForm.value.isAnnual = !this.multiStepForm.value.isAnnual;
-    console.log(this.multiStepForm.value);
+    this.multiStepForm.patchValue({});
   }
 
   // setAddon(index: number) {
@@ -64,22 +66,25 @@ export class MultiStepFormComponent {
   // }
 
   setRadioPlan(controlName: string) {
-    const planForm = this.multiStepForm.get('plans') as FormGroup;
-    const control = planForm.get(controlName);
-    planForm.reset();
-    control?.setValue(true);
-    this.test();
+    // const planForm = this.multiStepForm.get('plans') as FormGroup;
+    // const control = planForm.get(controlName);
+    // planForm.reset();
+    // control?.setValue(true);
+    this.multiStepForm.patchValue({ arcade: true, advanced: true, pro: true });
+
+    console.log('test');
   }
 
   setRadioAddon(controlName: string) {
     const addOnsForm = this.multiStepForm.get('addOns') as FormGroup;
     const control = addOnsForm.get(controlName);
-    control?.setValue(!control?.value);
-    this.test();
+    // control?.setValue(!control?.value);
+    // this.test();
+    console.log('test');
   }
 
   test() {
-    console.log(this.multiStepForm.value.addOns);
+    console.log(this.multiStepForm.value);
   }
 
   total() {
@@ -91,6 +96,18 @@ export class MultiStepFormComponent {
       nums.push(this.prices.arcade.monthly);
     }
 
+    if (this.multiStepForm.value.plans?.advanced) {
+      nums.push(this.prices.advanced.monthly);
+    }
+
+    if (this.multiStepForm.value.plans?.pro) {
+      nums.push(this.prices.pro.monthly);
+    }
+
+    if (this.multiStepForm.value.addOns?.onlineService) {
+      nums.push(this.prices.onlineService.monthly);
+    }
+
     for (let i = 0; i < nums.length; i++) {
       total += nums[i];
     }
@@ -98,3 +115,5 @@ export class MultiStepFormComponent {
     return total;
   }
 }
+
+// Might need to seperate form groups
