@@ -57,7 +57,7 @@ export class MultiStepFormComponent {
   // }
 
   setIsAnnual() {
-    this.multiStepForm.patchValue({});
+    this.multiStepForm.patchValue({ isAnnual: true });
   }
 
   // setAddon(index: number) {
