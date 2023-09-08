@@ -13,20 +13,13 @@ export class MultiStepFormComponent {
     email: new FormControl(''),
     phone: new FormControl(''),
     // plans
-    plans: new FormGroup({
-      arcade: new FormControl(false),
-      advanced: new FormControl(false),
-      pro: new FormControl(false),
-    }),
-    // add-ons
-    addOns: new FormGroup({
-      onlineService: new FormControl(false),
-      largerStorage: new FormControl(false),
-      customizableProfile: new FormControl(false),
-    }),
     arcade: new FormControl(false),
     advanced: new FormControl(false),
     pro: new FormControl(false),
+    // add-ons
+    onlineService: new FormControl(false),
+    largerStorage: new FormControl(false),
+    customizableProfile: new FormControl(false),
   });
 
   // isAnnual = false;
@@ -66,46 +59,91 @@ export class MultiStepFormComponent {
   // }
 
   setRadioPlan(controlName: string) {
-    // const planForm = this.multiStepForm.get('plans') as FormGroup;
-    // const control = planForm.get(controlName);
-    // planForm.reset();
-    // control?.setValue(true);
-    this.multiStepForm.patchValue({ arcade: true, advanced: true, pro: true });
-
-    console.log('test');
+    this.multiStepForm.patchValue({
+      arcade: false,
+      advanced: false,
+      pro: false,
+    });
+    const patchObject: { [key: string]: boolean } = {};
+    patchObject[controlName] = true;
+    this.multiStepForm.patchValue(patchObject);
+    console.log(this.multiStepForm.value);
   }
 
   setRadioAddon(controlName: string) {
-    const addOnsForm = this.multiStepForm.get('addOns') as FormGroup;
-    const control = addOnsForm.get(controlName);
-    // control?.setValue(!control?.value);
-    // this.test();
-    console.log('test');
+    const patchObject: { [key: string]: boolean } = {};
+    patchObject[controlName] = true;
+    this.multiStepForm.patchValue(patchObject);
+    console.log(this.multiStepForm.value);
   }
 
   test() {
     console.log(this.multiStepForm.value);
   }
 
-  total() {
+  totalMonthly() {
     let nums = [];
 
     let total = 0;
 
-    if (this.multiStepForm.value.plans?.arcade) {
+    if (this.multiStepForm.value.arcade) {
       nums.push(this.prices.arcade.monthly);
     }
 
-    if (this.multiStepForm.value.plans?.advanced) {
+    if (this.multiStepForm.value.advanced) {
       nums.push(this.prices.advanced.monthly);
     }
 
-    if (this.multiStepForm.value.plans?.pro) {
+    if (this.multiStepForm.value.pro) {
       nums.push(this.prices.pro.monthly);
     }
 
-    if (this.multiStepForm.value.addOns?.onlineService) {
+    if (this.multiStepForm.value.onlineService) {
       nums.push(this.prices.onlineService.monthly);
+    }
+
+    if (this.multiStepForm.value.largerStorage) {
+      nums.push(this.prices.largerStorage.monthly);
+    }
+
+    if (this.multiStepForm.value.customizableProfile) {
+      nums.push(this.prices.customizableProfile.monthly);
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+      total += nums[i];
+    }
+
+    return total;
+  }
+
+  totalAnnually() {
+    let nums = [];
+
+    let total = 0;
+
+    if (this.multiStepForm.value.arcade) {
+      nums.push(this.prices.arcade.annually);
+    }
+
+    if (this.multiStepForm.value.advanced) {
+      nums.push(this.prices.advanced.annually);
+    }
+
+    if (this.multiStepForm.value.pro) {
+      nums.push(this.prices.pro.annually);
+    }
+
+    if (this.multiStepForm.value.onlineService) {
+      nums.push(this.prices.onlineService.annually);
+    }
+
+    if (this.multiStepForm.value.largerStorage) {
+      nums.push(this.prices.largerStorage.annually);
+    }
+
+    if (this.multiStepForm.value.customizableProfile) {
+      nums.push(this.prices.customizableProfile.annually);
     }
 
     for (let i = 0; i < nums.length; i++) {
@@ -115,5 +153,3 @@ export class MultiStepFormComponent {
     return total;
   }
 }
-
-// Might need to seperate form groups

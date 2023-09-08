@@ -54,12 +54,8 @@
       class="Step-2__button"
       (click)="setRadioPlan('arcade')"
       [ngStyle]="{
-        background: multiStepForm.value.plans?.arcade
-          ? 'var(--pastel-blue)'
-          : '',
-        borderColor: multiStepForm.value.plans?.arcade
-          ? 'var(--purplish-blue)'
-          : ''
+        background: multiStepForm.value.arcade ? 'var(--pastel-blue)' : '',
+        borderColor: multiStepForm.value.arcade ? 'var(--purplish-blue)' : ''
       }"
     >
       <img src="./assets/images/icon-arcade.svg" alt="" />
@@ -85,12 +81,8 @@
       class="Step-2__button"
       (click)="setRadioPlan('advanced')"
       [ngStyle]="{
-        background: multiStepForm.value.plans?.advanced
-          ? 'var(--pastel-blue)'
-          : '',
-        borderColor: multiStepForm.value.plans?.advanced
-          ? 'var(--purplish-blue)'
-          : ''
+        background: multiStepForm.value.advanced ? 'var(--pastel-blue)' : '',
+        borderColor: multiStepForm.value.advanced ? 'var(--purplish-blue)' : ''
       }"
     >
       <img src="./assets/images/icon-advanced.svg" alt="" />
@@ -116,10 +108,8 @@
       class="Step-2__button"
       (click)="setRadioPlan('pro')"
       [ngStyle]="{
-        background: multiStepForm.value.plans?.pro ? 'var(--pastel-blue)' : '',
-        borderColor: multiStepForm.value.plans?.pro
-          ? 'var(--purplish-blue)'
-          : ''
+        background: multiStepForm.value.pro ? 'var(--pastel-blue)' : '',
+        borderColor: multiStepForm.value.pro ? 'var(--purplish-blue)' : ''
       }"
     >
       <img src="./assets/images/icon-pro.svg" alt="" />
@@ -177,10 +167,10 @@
       class="Step-3__button"
       (click)="setRadioAddon('onlineService')"
       [ngStyle]="{
-        background: multiStepForm.value.addOns?.onlineService
+        background: multiStepForm.value.onlineService
           ? 'var(--pastel-blue)'
           : '',
-        borderColor: multiStepForm.value.addOns?.onlineService
+        borderColor: multiStepForm.value.onlineService
           ? 'var(--purplish-blue)'
           : ''
       }"
@@ -189,7 +179,7 @@
         <div
           class="Step-3__checkbox"
           [ngStyle]="{
-            background: multiStepForm.value.addOns?.onlineService
+            background: multiStepForm.value.onlineService
               ? 'var(--purplish-blue)'
               : ''
           }"
@@ -217,10 +207,10 @@
       class="Step-3__button"
       (click)="setRadioAddon('largerStorage')"
       [ngStyle]="{
-        background: multiStepForm.value.addOns?.largerStorage
+        background: multiStepForm.value.largerStorage
           ? 'var(--pastel-blue)'
           : '',
-        borderColor: multiStepForm.value.addOns?.largerStorage
+        borderColor: multiStepForm.value.largerStorage
           ? 'var(--purplish-blue)'
           : ''
       }"
@@ -229,7 +219,7 @@
         <div
           class="Step-3__checkbox"
           [ngStyle]="{
-            background: multiStepForm.value.addOns?.largerStorage
+            background: multiStepForm.value.largerStorage
               ? 'var(--purplish-blue)'
               : ''
           }"
@@ -257,10 +247,10 @@
       class="Step-3__button"
       (click)="setRadioAddon('customizableProfile')"
       [ngStyle]="{
-        background: multiStepForm.value.addOns?.customizableProfile
+        background: multiStepForm.value.customizableProfile
           ? 'var(--pastel-blue)'
           : '',
-        borderColor: multiStepForm.value.addOns?.customizableProfile
+        borderColor: multiStepForm.value.customizableProfile
           ? 'var(--purplish-blue)'
           : ''
       }"
@@ -269,7 +259,7 @@
         <div
           class="Step-3__checkbox"
           [ngStyle]="{
-            background: multiStepForm.value.addOns?.customizableProfile
+            background: multiStepForm.value.customizableProfile
               ? 'var(--purplish-blue)'
               : ''
           }"
@@ -298,7 +288,7 @@
     <h1 class="Step-4__h1">Finishing Up</h1>
     <p class="Step-4__p">Double-check everything looks OK before confirming.</p>
     <section>
-      <div *ngIf="multiStepForm.value.plans?.arcade">
+      <div *ngIf="multiStepForm.value.arcade">
         <p>
           Arcade ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
         </p>
@@ -310,7 +300,7 @@
           }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
         </p>
       </div>
-      <div *ngIf="multiStepForm.value.plans?.advanced">
+      <div *ngIf="multiStepForm.value.advanced">
         <p>
           Advanced ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
         </p>
@@ -322,7 +312,7 @@
           }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
         </p>
       </div>
-      <div *ngIf="multiStepForm.value.plans?.pro">
+      <div *ngIf="multiStepForm.value.pro">
         <p>Pro ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})</p>
         <p>
           ${{
@@ -333,7 +323,7 @@
         </p>
       </div>
       <div>______________________________</div>
-      <div *ngIf="multiStepForm.value.addOns?.onlineService">
+      <div *ngIf="multiStepForm.value.onlineService">
         <p>Online service</p>
         <p>
           +${{
@@ -343,7 +333,7 @@
           }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
         </p>
       </div>
-      <div *ngIf="multiStepForm.value.addOns?.largerStorage">
+      <div *ngIf="multiStepForm.value.largerStorage">
         <p>Larger storage</p>
         <p>
           +${{
@@ -353,7 +343,7 @@
           }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
         </p>
       </div>
-      <div *ngIf="multiStepForm.value.addOns?.customizableProfile">
+      <div *ngIf="multiStepForm.value.customizableProfile">
         <p>Customizable Profile</p>
         <p>
           +${{
@@ -365,7 +355,7 @@
       </div>
     </section>
     <p>Total (per {{ multiStepForm.value.isAnnual ? "year" : "month" }})</p>
-    <p>{{ total() }}</p>
+    <p>{{ multiStepForm.value.isAnnual ? totalAnnually() : totalMonthly() }}</p>
   </section>
   <section class="Step-5">
     <img class="Step-5__icon" src="./assets/images/icon-thank-you.svg" alt="" />
