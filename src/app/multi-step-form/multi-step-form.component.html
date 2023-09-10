@@ -1,6 +1,6 @@
 <!-- work on hidden radio buttons -->
 
-<div (click)="test()">Test</div>
+<!-- <div (click)="test()">Test</div> -->
 <form class="Form" [formGroup]="multiStepForm">
   <section class="Form__progress">
     <p class="Form__progress-step">1</p>
@@ -8,372 +8,382 @@
     <p class="Form__progress-step">3</p>
     <p class="Form__progress-step">4</p>
   </section>
-  <section class="Step-1">
-    <h1 class="Step-1__h1">Personal Info</h1>
-    <p class="Step-1__p">
-      Please provide your name, email address, and phone number.
-    </p>
-    <div class="Step-1__input-wrapper">
-      <label class="Step-1__label" for="name">Name</label>
-      <input
-        class="Step-1__text-input"
-        type="text"
-        name="name"
-        id="name"
-        placeholder="e.g Stephen King"
-        formControlName="name"
-      />
-    </div>
-    <div class="Step-1__input-wrapper">
-      <label class="Step-1__label" for="email">Email Address</label>
-      <input
-        class="Step-1__text-input"
-        type="text"
-        name="email"
-        id="email"
-        placeholder="e.g stephenking@lorem.com"
-        formControlName="email"
-      />
-    </div>
-    <div class="Step-1__input-wrapper">
-      <label class="Step-1__label" for="phone">Phone Number</label>
-      <input
-        class="Step-1__text-input"
-        type="tel"
-        name="phone"
-        id="phone"
-        placeholder="e.g +1 234 567 890"
-        formControlName="phone"
-      />
-    </div>
-  </section>
-  <section class="Step-2">
-    <h1 class="Step-2__h1">Select your Plan</h1>
-    <p class="Step-2__p">You have the option of monthly or yearly billing.</p>
-    <div
-      class="Step-2__button"
-      (click)="setRadioPlan('arcade')"
-      [ngStyle]="{
-        background: multiStepForm.value.arcade ? 'var(--pastel-blue)' : '',
-        borderColor: multiStepForm.value.arcade ? 'var(--purplish-blue)' : ''
-      }"
-    >
-      <img src="./assets/images/icon-arcade.svg" alt="" />
-      <div class="Step-2__button-text-wrapper">
-        <h1 class="Step-2__button-h1">Arcade</h1>
-        <p class="Step-2__button-p">
-          ${{
-            multiStepForm.value.isAnnual
-              ? prices.arcade.annually
-              : prices.arcade.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
-        </p>
-        <p
-          class="Step-2__annual-text"
-          [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
-        >
-          2 months free
-        </p>
-      </div>
-    </div>
-    <!-- <input type="radio" name="plan" id="arcade" formControlName="arcade" /> -->
-    <div
-      class="Step-2__button"
-      (click)="setRadioPlan('advanced')"
-      [ngStyle]="{
-        background: multiStepForm.value.advanced ? 'var(--pastel-blue)' : '',
-        borderColor: multiStepForm.value.advanced ? 'var(--purplish-blue)' : ''
-      }"
-    >
-      <img src="./assets/images/icon-advanced.svg" alt="" />
-      <div class="Step-2__button-text-wrapper">
-        <h1 class="Step-2__button-h1">Advanced</h1>
-        <p class="Step-2__button-p">
-          ${{
-            multiStepForm.value.isAnnual
-              ? prices.advanced.annually
-              : prices.advanced.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
-        </p>
-        <p
-          class="Step-2__annual-text"
-          [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
-        >
-          2 months free
-        </p>
-      </div>
-    </div>
-    <!-- <input type="radio" name="plan" id="advanced" formControlName="advanced" /> -->
-    <div
-      class="Step-2__button"
-      (click)="setRadioPlan('pro')"
-      [ngStyle]="{
-        background: multiStepForm.value.pro ? 'var(--pastel-blue)' : '',
-        borderColor: multiStepForm.value.pro ? 'var(--purplish-blue)' : ''
-      }"
-    >
-      <img src="./assets/images/icon-pro.svg" alt="" />
-      <div class="Step-2__button-text-wrapper">
-        <h1 class="Step-2__button-h1">Pro</h1>
-        <p class="Step-2__button-p">
-          ${{
-            multiStepForm.value.isAnnual
-              ? prices.pro.annually
-              : prices.pro.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
-        </p>
-        <p
-          class="Step-2__annual-text"
-          [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
-        >
-          2 months free
-        </p>
-      </div>
-    </div>
-    <!-- <input type="radio" name="plan" id="pro" formControlName="pro" /> -->
-    <section class="Step-2__switch-wrapper">
-      <p
-        [ngStyle]="{
-          color: multiStepForm.value.isAnnual
-            ? 'var(--cool-gray)'
-            : 'var(--marine-blue)'
-        }"
-      >
-        Monthly
+  <section class="Form__current-step">
+    <section class="Step-1">
+      <h1 class="Step-1__h1">Personal Info</h1>
+      <p class="Step-1__p">
+        Please provide your name, email address, and phone number.
       </p>
-      <div class="Step-2__switch" (click)="setIsAnnual()">
-        <div
-          class="Step-2__switch-slider"
-          [ngStyle]="{
-            marginLeft: multiStepForm.value.isAnnual ? '1.4rem' : ''
-          }"
-        ></div>
+      <div class="Step-1__input-wrapper">
+        <label class="Step-1__label" for="name">Name</label>
+        <input
+          class="Step-1__text-input"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="e.g Stephen King"
+          formControlName="name"
+        />
       </div>
-      <p
-        [ngStyle]="{
-          color: multiStepForm.value.isAnnual
-            ? 'var(--marine-blue)'
-            : 'var(--cool-gray)'
-        }"
-      >
-        Yearly
-      </p>
+      <div class="Step-1__input-wrapper">
+        <label class="Step-1__label" for="email">Email Address</label>
+        <input
+          class="Step-1__text-input"
+          type="text"
+          name="email"
+          id="email"
+          placeholder="e.g stephenking@lorem.com"
+          formControlName="email"
+        />
+      </div>
+      <div class="Step-1__input-wrapper">
+        <label class="Step-1__label" for="phone">Phone Number</label>
+        <input
+          class="Step-1__text-input"
+          type="tel"
+          name="phone"
+          id="phone"
+          placeholder="e.g +1 234 567 890"
+          formControlName="phone"
+        />
+      </div>
     </section>
-  </section>
-  <section class="Step-3">
-    <h1 class="Step-3__h1">Pick add-ons</h1>
-    <p class="Step-3__p">Add-ons help enhance your gaming experience.</p>
-    <div
-      class="Step-3__button"
-      (click)="setRadioAddon('onlineService')"
-      [ngStyle]="{
-        background: multiStepForm.value.onlineService
-          ? 'var(--pastel-blue)'
-          : '',
-        borderColor: multiStepForm.value.onlineService
-          ? 'var(--purplish-blue)'
-          : ''
-      }"
-    >
-      <div class="Step-3__button-layout-wrapper">
-        <div
-          class="Step-3__checkbox"
+    <section class="Step-2">
+      <h1 class="Step-2__h1">Select your Plan</h1>
+      <p class="Step-2__p">You have the option of monthly or yearly billing.</p>
+      <div
+        class="Step-2__button"
+        (click)="setRadioPlan('arcade')"
+        [ngStyle]="{
+          background: multiStepForm.value.arcade ? 'var(--pastel-blue)' : '',
+          borderColor: multiStepForm.value.arcade ? 'var(--purplish-blue)' : ''
+        }"
+      >
+        <img src="./assets/images/icon-arcade.svg" alt="" />
+        <div class="Step-2__button-text-wrapper">
+          <h1 class="Step-2__button-h1">Arcade</h1>
+          <p class="Step-2__button-p">
+            ${{
+              multiStepForm.value.isAnnual
+                ? prices.arcade.annually
+                : prices.arcade.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
+          </p>
+          <p
+            class="Step-2__annual-text"
+            [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
+          >
+            2 months free
+          </p>
+        </div>
+      </div>
+      <!-- <input type="radio" name="plan" id="arcade" formControlName="arcade" /> -->
+      <div
+        class="Step-2__button"
+        (click)="setRadioPlan('advanced')"
+        [ngStyle]="{
+          background: multiStepForm.value.advanced ? 'var(--pastel-blue)' : '',
+          borderColor: multiStepForm.value.advanced
+            ? 'var(--purplish-blue)'
+            : ''
+        }"
+      >
+        <img src="./assets/images/icon-advanced.svg" alt="" />
+        <div class="Step-2__button-text-wrapper">
+          <h1 class="Step-2__button-h1">Advanced</h1>
+          <p class="Step-2__button-p">
+            ${{
+              multiStepForm.value.isAnnual
+                ? prices.advanced.annually
+                : prices.advanced.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
+          </p>
+          <p
+            class="Step-2__annual-text"
+            [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
+          >
+            2 months free
+          </p>
+        </div>
+      </div>
+      <!-- <input type="radio" name="plan" id="advanced" formControlName="advanced" /> -->
+      <div
+        class="Step-2__button"
+        (click)="setRadioPlan('pro')"
+        [ngStyle]="{
+          background: multiStepForm.value.pro ? 'var(--pastel-blue)' : '',
+          borderColor: multiStepForm.value.pro ? 'var(--purplish-blue)' : ''
+        }"
+      >
+        <img src="./assets/images/icon-pro.svg" alt="" />
+        <div class="Step-2__button-text-wrapper">
+          <h1 class="Step-2__button-h1">Pro</h1>
+          <p class="Step-2__button-p">
+            ${{
+              multiStepForm.value.isAnnual
+                ? prices.pro.annually
+                : prices.pro.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
+          </p>
+          <p
+            class="Step-2__annual-text"
+            [ngStyle]="{ display: multiStepForm.value.isAnnual ? '' : 'none' }"
+          >
+            2 months free
+          </p>
+        </div>
+      </div>
+      <!-- <input type="radio" name="plan" id="pro" formControlName="pro" /> -->
+      <section class="Step-2__switch-wrapper">
+        <p
           [ngStyle]="{
-            background: multiStepForm.value.onlineService
-              ? 'var(--purplish-blue)'
-              : ''
+            color: multiStepForm.value.isAnnual
+              ? 'var(--cool-gray)'
+              : 'var(--marine-blue)'
           }"
         >
-          <img
-            class="Step-3__check"
-            src="./assets/images/icon-checkmark.svg"
-            alt=""
-          />
+          Monthly
+        </p>
+        <div class="Step-2__switch" (click)="setIsAnnual()">
+          <div
+            class="Step-2__switch-slider"
+            [ngStyle]="{
+              marginLeft: multiStepForm.value.isAnnual ? '1.4rem' : ''
+            }"
+          ></div>
         </div>
-        <div class="Step-3__button-text-wrapper">
-          <h1 class="Step-3__button-h1">Online service</h1>
-          <p class="Step-3__button-p">Access to multiplayer games</p>
-        </div>
-      </div>
-      <p class="Step-3__button-price">
-        +${{
-          multiStepForm.value.isAnnual
-            ? prices.onlineService.annually
-            : prices.onlineService.monthly
-        }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
-      </p>
-    </div>
-    <div
-      class="Step-3__button"
-      (click)="setRadioAddon('largerStorage')"
-      [ngStyle]="{
-        background: multiStepForm.value.largerStorage
-          ? 'var(--pastel-blue)'
-          : '',
-        borderColor: multiStepForm.value.largerStorage
-          ? 'var(--purplish-blue)'
-          : ''
-      }"
-    >
-      <div class="Step-3__button-layout-wrapper">
-        <div
-          class="Step-3__checkbox"
+        <p
           [ngStyle]="{
-            background: multiStepForm.value.largerStorage
-              ? 'var(--purplish-blue)'
-              : ''
+            color: multiStepForm.value.isAnnual
+              ? 'var(--marine-blue)'
+              : 'var(--cool-gray)'
           }"
         >
-          <img
-            class="Step-3__check"
-            src="./assets/images/icon-checkmark.svg"
-            alt=""
-          />
+          Yearly
+        </p>
+      </section>
+    </section>
+    <section class="Step-3">
+      <h1 class="Step-3__h1">Pick add-ons</h1>
+      <p class="Step-3__p">Add-ons help enhance your gaming experience.</p>
+      <div
+        class="Step-3__button"
+        (click)="setRadioAddon('onlineService')"
+        [ngStyle]="{
+          background: multiStepForm.value.onlineService
+            ? 'var(--pastel-blue)'
+            : '',
+          borderColor: multiStepForm.value.onlineService
+            ? 'var(--purplish-blue)'
+            : ''
+        }"
+      >
+        <div class="Step-3__button-layout-wrapper">
+          <div
+            class="Step-3__checkbox"
+            [ngStyle]="{
+              background: multiStepForm.value.onlineService
+                ? 'var(--purplish-blue)'
+                : ''
+            }"
+          >
+            <img
+              class="Step-3__check"
+              src="./assets/images/icon-checkmark.svg"
+              alt=""
+            />
+          </div>
+          <div class="Step-3__button-text-wrapper">
+            <h1 class="Step-3__button-h1">Online service</h1>
+            <p class="Step-3__button-p">Access to multiplayer games</p>
+          </div>
         </div>
-        <div class="Step-3__button-text-wrapper">
-          <h1 class="Step-3__button-h1">Larger storage</h1>
-          <p class="Step-3__button-p">Extra 1TB of cloud save</p>
-        </div>
-      </div>
-      <p class="Step-3__button-price">
-        +${{
-          multiStepForm.value.isAnnual
-            ? prices.largerStorage.annually
-            : prices.largerStorage.monthly
-        }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
-      </p>
-    </div>
-    <div
-      class="Step-3__button"
-      (click)="setRadioAddon('customizableProfile')"
-      [ngStyle]="{
-        background: multiStepForm.value.customizableProfile
-          ? 'var(--pastel-blue)'
-          : '',
-        borderColor: multiStepForm.value.customizableProfile
-          ? 'var(--purplish-blue)'
-          : ''
-      }"
-    >
-      <div class="Step-3__button-layout-wrapper">
-        <div
-          class="Step-3__checkbox"
-          [ngStyle]="{
-            background: multiStepForm.value.customizableProfile
-              ? 'var(--purplish-blue)'
-              : ''
-          }"
-        >
-          <img
-            class="Step-3__check"
-            src="./assets/images/icon-checkmark.svg"
-            alt=""
-          />
-        </div>
-        <div class="Step-3__button-text-wrapper">
-          <h1 class="Step-3__button-h1">Customizable profile</h1>
-          <p class="Step-3__button-p">Custom theme on your profile</p>
-        </div>
-      </div>
-      <p class="Step-3__button-price">
-        +${{
-          multiStepForm.value.isAnnual
-            ? prices.customizableProfile.annually
-            : prices.customizableProfile.monthly
-        }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
-      </p>
-    </div>
-  </section>
-  <section class="Step-4">
-    <h1 class="Step-4__h1">Finishing Up</h1>
-    <p class="Step-4__p">Double-check everything looks OK before confirming.</p>
-    <section class="Step-4__wrapper">
-      <div class="Step-4__plan" *ngIf="multiStepForm.value.arcade">
-        <p>
-          Arcade ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
-        </p>
-        <p>
-          ${{
-            multiStepForm.value.isAnnual
-              ? prices.arcade.annually
-              : prices.arcade.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
-        </p>
-      </div>
-      <div class="Step-4__plan" *ngIf="multiStepForm.value.advanced">
-        <p>
-          Advanced ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
-        </p>
-        <p>
-          ${{
-            multiStepForm.value.isAnnual
-              ? prices.advanced.annually
-              : prices.advanced.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
-        </p>
-      </div>
-      <div class="Step-4__plan" *ngIf="multiStepForm.value.pro">
-        <p>Pro ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})</p>
-        <p>
-          ${{
-            multiStepForm.value.isAnnual
-              ? prices.pro.annually
-              : prices.pro.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
-        </p>
-      </div>
-      <div class="Step-4__divider"></div>
-      <div class="Step-4__addon" *ngIf="multiStepForm.value.onlineService">
-        <p>Online service</p>
-        <p class="Step-4__addon-price">
+        <p class="Step-3__button-price">
           +${{
             multiStepForm.value.isAnnual
               ? prices.onlineService.annually
               : prices.onlineService.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
         </p>
       </div>
-      <div class="Step-4__addon" *ngIf="multiStepForm.value.largerStorage">
-        <p>Larger storage</p>
-        <p class="Step-4__addon-price">
+      <div
+        class="Step-3__button"
+        (click)="setRadioAddon('largerStorage')"
+        [ngStyle]="{
+          background: multiStepForm.value.largerStorage
+            ? 'var(--pastel-blue)'
+            : '',
+          borderColor: multiStepForm.value.largerStorage
+            ? 'var(--purplish-blue)'
+            : ''
+        }"
+      >
+        <div class="Step-3__button-layout-wrapper">
+          <div
+            class="Step-3__checkbox"
+            [ngStyle]="{
+              background: multiStepForm.value.largerStorage
+                ? 'var(--purplish-blue)'
+                : ''
+            }"
+          >
+            <img
+              class="Step-3__check"
+              src="./assets/images/icon-checkmark.svg"
+              alt=""
+            />
+          </div>
+          <div class="Step-3__button-text-wrapper">
+            <h1 class="Step-3__button-h1">Larger storage</h1>
+            <p class="Step-3__button-p">Extra 1TB of cloud save</p>
+          </div>
+        </div>
+        <p class="Step-3__button-price">
           +${{
             multiStepForm.value.isAnnual
               ? prices.largerStorage.annually
               : prices.largerStorage.monthly
-          }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
         </p>
       </div>
       <div
-        class="Step-4__addon"
-        *ngIf="multiStepForm.value.customizableProfile"
+        class="Step-3__button"
+        (click)="setRadioAddon('customizableProfile')"
+        [ngStyle]="{
+          background: multiStepForm.value.customizableProfile
+            ? 'var(--pastel-blue)'
+            : '',
+          borderColor: multiStepForm.value.customizableProfile
+            ? 'var(--purplish-blue)'
+            : ''
+        }"
       >
-        <p class="Step-4__addon">Customizable Profile</p>
-        <p class="Step-4__addon-price">
+        <div class="Step-3__button-layout-wrapper">
+          <div
+            class="Step-3__checkbox"
+            [ngStyle]="{
+              background: multiStepForm.value.customizableProfile
+                ? 'var(--purplish-blue)'
+                : ''
+            }"
+          >
+            <img
+              class="Step-3__check"
+              src="./assets/images/icon-checkmark.svg"
+              alt=""
+            />
+          </div>
+          <div class="Step-3__button-text-wrapper">
+            <h1 class="Step-3__button-h1">Customizable profile</h1>
+            <p class="Step-3__button-p">Custom theme on your profile</p>
+          </div>
+        </div>
+        <p class="Step-3__button-price">
           +${{
             multiStepForm.value.isAnnual
               ? prices.customizableProfile.annually
               : prices.customizableProfile.monthly
+          }}/{{ multiStepForm.value.isAnnual ? "yr" : "mo" }}
+        </p>
+      </div>
+    </section>
+    <section class="Step-4">
+      <h1 class="Step-4__h1">Finishing Up</h1>
+      <p class="Step-4__p">
+        Double-check everything looks OK before confirming.
+      </p>
+      <section class="Step-4__wrapper">
+        <div class="Step-4__plan" *ngIf="multiStepForm.value.arcade">
+          <p>
+            Arcade ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
+          </p>
+          <p>
+            ${{
+              multiStepForm.value.isAnnual
+                ? prices.arcade.annually
+                : prices.arcade.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          </p>
+        </div>
+        <div class="Step-4__plan" *ngIf="multiStepForm.value.advanced">
+          <p>
+            Advanced ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})
+          </p>
+          <p>
+            ${{
+              multiStepForm.value.isAnnual
+                ? prices.advanced.annually
+                : prices.advanced.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          </p>
+        </div>
+        <div class="Step-4__plan" *ngIf="multiStepForm.value.pro">
+          <p>Pro ({{ multiStepForm.value.isAnnual ? "Yearly" : "Monthly" }})</p>
+          <p>
+            ${{
+              multiStepForm.value.isAnnual
+                ? prices.pro.annually
+                : prices.pro.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          </p>
+        </div>
+        <div class="Step-4__divider"></div>
+        <div class="Step-4__addon" *ngIf="multiStepForm.value.onlineService">
+          <p>Online service</p>
+          <p class="Step-4__addon-price">
+            +${{
+              multiStepForm.value.isAnnual
+                ? prices.onlineService.annually
+                : prices.onlineService.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          </p>
+        </div>
+        <div class="Step-4__addon" *ngIf="multiStepForm.value.largerStorage">
+          <p>Larger storage</p>
+          <p class="Step-4__addon-price">
+            +${{
+              multiStepForm.value.isAnnual
+                ? prices.largerStorage.annually
+                : prices.largerStorage.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          </p>
+        </div>
+        <div
+          class="Step-4__addon"
+          *ngIf="multiStepForm.value.customizableProfile"
+        >
+          <p class="Step-4__addon">Customizable Profile</p>
+          <p class="Step-4__addon-price">
+            +${{
+              multiStepForm.value.isAnnual
+                ? prices.customizableProfile.annually
+                : prices.customizableProfile.monthly
+            }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+          </p>
+        </div>
+      </section>
+      <div class="Step-4__total-wrapper">
+        <p>Total (per {{ multiStepForm.value.isAnnual ? "year" : "month" }})</p>
+        <p class="Step-4__total">
+          +${{
+            multiStepForm.value.isAnnual ? totalAnnually() : totalMonthly()
           }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
         </p>
       </div>
     </section>
-    <div class="Step-4__total-wrapper">
-      <p>Total (per {{ multiStepForm.value.isAnnual ? "year" : "month" }})</p>
-      <p class="Step-4__total">
-        +${{
-          multiStepForm.value.isAnnual ? totalAnnually() : totalMonthly()
-        }}/{{ multiStepForm.value.isAnnual ? "yo" : "mo" }}
+    <section class="Step-5">
+      <img
+        class="Step-5__icon"
+        src="./assets/images/icon-thank-you.svg"
+        alt=""
+      />
+      <h1 class="Step-5__h1">Thank you!</h1>
+      <p class="Step-5__p">
+        Thanks for confirming your subscription! We hope you have fun using our
+        platform. If you ever need support, please feel free to email us at
+        support@loremgaming.com.
       </p>
-    </div>
-  </section>
-  <section class="Step-5">
-    <img class="Step-5__icon" src="./assets/images/icon-thank-you.svg" alt="" />
-    <h1 class="Step-5__h1">Thank you!</h1>
-    <p class="Step-5__p">
-      Thanks for confirming your subscription! We hope you have fun using our
-      platform. If you ever need support, please feel free to email us at
-      support@loremgaming.com.
-    </p>
+    </section>
   </section>
   <section class="Form-Navigation">
     <button class="Form-Navigation__back">Go Back</button>
