@@ -152,4 +152,16 @@ export class MultiStepFormComponent {
 
     return total;
   }
+
+  stepCounter = 0;
+
+  incrementStep() {
+    this.stepCounter += 1;
+  }
+
+  decrementStep() {
+    if (this.stepCounter > 0) {
+      this.stepCounter -= 1;
+    }
+  }
 }
