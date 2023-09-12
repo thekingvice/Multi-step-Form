@@ -17,12 +17,48 @@
   padding: 2rem 0 6rem 0;
 }
 
-.Form__current-step {
+/* .Form__current-step {
   transform: translate(0, -4rem);
+} */
+
+.Form__desktop-progress-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Form__desktop-progress {
+  background-image: url(src/assets/images/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+.Form__desktop-progress-step-text {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--light-gray);
+}
+
+.Form__desktop {
+  display: flex;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  gap: 1rem;
 }
 
 .Form__wrapper {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Form__progress-step {
