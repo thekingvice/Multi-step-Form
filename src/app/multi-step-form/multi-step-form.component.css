@@ -3,11 +3,11 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .Form__progress {
-  display: flex;
+  display: none;
   gap: 1rem;
   background-image: url(src/assets/images/bg-sidebar-mobile.svg);
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@
   background-image: url(src/assets/images/bg-sidebar-desktop.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 2rem;
+  padding: 2rem 4rem 2rem 2rem;
   border-radius: 0.5rem;
   color: white;
   display: flex;
@@ -52,6 +52,7 @@
   background: white;
   border-radius: 0.5rem;
   gap: 1rem;
+  margin: 1rem;
 }
 
 .Form__wrapper {
@@ -78,10 +79,9 @@
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 10%;
   border-radius: 0.5rem;
   gap: 1rem;
-  margin: 0 1rem;
 }
 
 .Step-1__h1 {
@@ -122,10 +122,9 @@
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 10%;
   border-radius: 0.5rem;
   gap: 1rem;
-  margin: 0 1rem;
 }
 
 .Step-2__h1 {
@@ -201,10 +200,9 @@
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 10%;
   border-radius: 0.5rem;
   gap: 1rem;
-  margin: 0 1rem;
 }
 
 .Step-3__h1 {
@@ -271,10 +269,9 @@
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 10%;
   border-radius: 0.5rem;
   gap: 1rem;
-  margin: 0 1rem;
 }
 
 .Step-4__h1 {
@@ -294,11 +291,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: 10%;
   border-radius: 0.5rem;
   gap: 1rem;
-  margin: 0 1rem;
+
   text-align: center;
+  max-width: 25rem;
 }
 
 .Step-5__icon {
@@ -319,6 +317,16 @@
 /* Form Navigation */
 
 .Form-Navigation {
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  display: none;
+}
+
+.Form-Navigation__desktop {
   background: white;
   width: 100%;
   display: flex;
@@ -381,4 +389,26 @@
 .Step-4__total {
   font-weight: 700;
   color: var(--purplish-blue);
+}
+
+@media only screen and (max-width: 670px) {
+  .Form {
+    justify-content: space-between;
+  }
+
+  .Form__progress {
+    display: flex;
+  }
+
+  .Form-Navigation {
+    display: flex;
+  }
+
+  .Form__desktop-progress {
+    display: none;
+  }
+
+  .Form-Navigation__desktop {
+    display: none;
+  }
 }
