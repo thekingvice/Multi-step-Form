@@ -14,12 +14,8 @@
   width: 100%;
   justify-content: center;
   background-size: cover;
-  padding: 2rem 0 6rem 0;
+  padding: 2rem 0 6rem;
 }
-
-/* .Form__current-step {
-  transform: translate(0, -4rem);
-} */
 
 .Form__desktop-progress-step {
   display: flex;
@@ -33,7 +29,7 @@
   background-size: cover;
   padding: 2rem 4rem 2rem 2rem;
   border-radius: 0.5rem;
-  color: white;
+  color: #fff;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -49,7 +45,7 @@
 .Form__desktop {
   display: flex;
   padding: 1rem;
-  background: white;
+  background: #fff;
   border-radius: 0.5rem;
   gap: 1rem;
   margin: 1rem;
@@ -68,15 +64,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
+  border: 1px solid #fff;
   border-radius: 1rem;
-  color: white;
+  color: #fff;
 }
 
-/* Step 1 */
-
 .Step-1 {
-  background: white;
+  background: #fff;
   display: flex;
   flex-direction: column;
   padding: 10%;
@@ -111,17 +105,14 @@
   opacity: 100%;
 }
 
-.Step-1__input-wrapper {
+.Step-1__input-wrapper,
+.Step-2 {
   display: flex;
   flex-direction: column;
 }
 
-/* Step 2 */
-
 .Step-2 {
-  background: white;
-  display: flex;
-  flex-direction: column;
+  background: #fff;
   padding: 10%;
   border-radius: 0.5rem;
   gap: 1rem;
@@ -178,7 +169,7 @@
 .Step-2__switch-slider {
   height: 1rem;
   width: 1rem;
-  background: white;
+  background: #fff;
   border-radius: 100%;
   transition: all 0.5s;
 }
@@ -194,10 +185,8 @@
   font-weight: 500;
 }
 
-/* Step 3 */
-
 .Step-3 {
-  background: white;
+  background: #fff;
   display: flex;
   flex-direction: column;
   padding: 10%;
@@ -215,23 +204,24 @@
   color: var(--cool-gray);
 }
 
+.Step-3__button,
+.Step-3__checkbox {
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+}
+
 .Step-3__button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid var(--cool-gray);
-  border-radius: 0.25rem;
   cursor: pointer;
 }
 
 .Step-3__checkbox {
   height: 1.5rem;
   width: 1.5rem;
-  border: 1px solid var(--cool-gray);
-  border-radius: 0.25rem;
-  /* background: var(--purplish-blue); */
   padding: 0.25rem;
 }
 
@@ -263,10 +253,8 @@
   color: var(--purplish-blue);
 }
 
-/* Step 4 */
-
 .Step-4 {
-  background: white;
+  background: #fff;
   display: flex;
   flex-direction: column;
   padding: 10%;
@@ -284,17 +272,14 @@
   color: var(--cool-gray);
 }
 
-/* Step 5 */
-
 .Step-5 {
-  background: white;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10%;
   border-radius: 0.5rem;
   gap: 1rem;
-
   text-align: center;
   max-width: 25rem;
 }
@@ -314,20 +299,13 @@
   color: var(--cool-gray);
 }
 
-/* Form Navigation */
-
 .Form-Navigation {
-  background: white;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  align-items: center;
   display: none;
 }
 
+.Form-Navigation,
 .Form-Navigation__desktop {
-  background: white;
+  background: #fff;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -343,7 +321,7 @@
 
 .Form-Navigation__forward {
   background: var(--marine-blue);
-  color: white;
+  color: #fff;
   padding: 1rem;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -396,19 +374,13 @@
     justify-content: space-between;
   }
 
+  .Form-Navigation,
   .Form__progress {
     display: flex;
   }
 
-  .Form-Navigation {
-    display: flex;
-  }
-
+  .Form-Navigation__desktop,
   .Form__desktop-progress {
-    display: none;
-  }
-
-  .Form-Navigation__desktop {
     display: none;
   }
 }
