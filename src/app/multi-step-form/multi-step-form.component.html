@@ -1,5 +1,392 @@
 <!-- work on hidden radio buttons -->
+<style>
+  .Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
 
+  .Form__progress {
+    display: none;
+    gap: 1rem;
+    background-image: url(src/assets/images/bg-sidebar-mobile.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    justify-content: center;
+    background-size: cover;
+    padding: 2rem 0 6rem;
+  }
+
+  .Form__desktop-progress-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .Form__desktop-progress {
+    background-image: url(src/assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem 4rem 2rem 2rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 500;
+  }
+
+  .Form__desktop-progress-step-text {
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--light-gray);
+  }
+
+  .Form__desktop {
+    display: flex;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    gap: 1rem;
+    margin: 1rem;
+  }
+
+  .Form__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Form__progress-step {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 1rem;
+    color: #fff;
+  }
+
+  .Step-1 {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    border-radius: 0.5rem;
+    gap: 1rem;
+  }
+
+  .Step-1__h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--marine-blue);
+  }
+
+  .Step-1__p {
+    color: var(--cool-gray);
+  }
+
+  .Step-1__label {
+    color: var(--marine-blue);
+    font-size: 0.8rem;
+  }
+
+  .Step-1__text-input {
+    color: var(--marine-blue);
+    border: 1px solid var(--cool-gray);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .Step-1__text-input::placeholder {
+    color: var(--cool-gray);
+    opacity: 100%;
+  }
+
+  .Step-1__input-wrapper,
+  .Step-2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Step-2 {
+    background: #fff;
+    padding: 10%;
+    border-radius: 0.5rem;
+    gap: 1rem;
+  }
+
+  .Step-2__h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--marine-blue);
+  }
+
+  .Step-2__p {
+    color: var(--cool-gray);
+  }
+
+  .Step-2__button {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--cool-gray);
+    border-radius: 0.25rem;
+    gap: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .Step-2__button-text-wrapper {
+    text-align: left;
+  }
+
+  .Step-2__button-h1 {
+    font-weight: 500;
+    color: var(--marine-blue);
+  }
+
+  .Step-2__button-p {
+    color: var(--cool-gray);
+  }
+
+  .Step-2__annual-text {
+    color: var(--marine-blue);
+    font-size: 0.8rem;
+  }
+
+  .Step-2__switch {
+    background: var(--marine-blue);
+    width: 3rem;
+    height: 1.5rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .Step-2__switch-slider {
+    height: 1rem;
+    width: 1rem;
+    background: #fff;
+    border-radius: 100%;
+    transition: all 0.5s;
+  }
+
+  .Step-2__switch-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--light-gray);
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  .Step-3 {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    border-radius: 0.5rem;
+    gap: 1rem;
+  }
+
+  .Step-3__h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--marine-blue);
+  }
+
+  .Step-3__p {
+    color: var(--cool-gray);
+  }
+
+  .Step-3__button,
+  .Step-3__checkbox {
+    border: 1px solid var(--cool-gray);
+    border-radius: 0.25rem;
+  }
+
+  .Step-3__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .Step-3__checkbox {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0.25rem;
+  }
+
+  .Step-3__check {
+    min-width: 1rem;
+    min-height: 1rem;
+  }
+
+  .Step-3__button-layout-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .Step-3__button-text-wrapper {
+    text-align: left;
+  }
+
+  .Step-3__button-h1 {
+    color: var(--marine-blue);
+    font-weight: 500;
+  }
+
+  .Step-3__button-p {
+    color: var(--cool-gray);
+  }
+
+  .Step-3__button-price {
+    color: var(--purplish-blue);
+  }
+
+  .Step-4 {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    border-radius: 0.5rem;
+    gap: 1rem;
+  }
+
+  .Step-4__h1 {
+    font-size: 1.5rem;
+    color: var(--marine-blue);
+    font-weight: 500;
+  }
+
+  .Step-4__p {
+    color: var(--cool-gray);
+  }
+
+  .Step-5 {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10%;
+    border-radius: 0.5rem;
+    gap: 1rem;
+    text-align: center;
+    max-width: 25rem;
+  }
+
+  .Step-5__icon {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .Step-5__h1 {
+    color: var(--marine-blue);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .Step-5__p {
+    color: var(--cool-gray);
+  }
+
+  .Form-Navigation {
+    display: none;
+  }
+
+  .Form-Navigation,
+  .Form-Navigation__desktop {
+    background: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+  }
+
+  .Form-Navigation__back {
+    color: var(--cool-gray);
+    height: fit-content;
+    cursor: pointer;
+  }
+
+  .Form-Navigation__forward {
+    background: var(--marine-blue);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  .Step-4__wrapper {
+    background: var(--light-gray);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .Step-4__plan {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    color: var(--marine-blue);
+  }
+
+  .Step-4__divider {
+    width: 100%;
+    border: 0.25px solid var(--cool-gray);
+  }
+
+  .Step-4__addon {
+    color: var(--cool-gray);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Step-4__addon-price {
+    color: var(--marine-blue);
+  }
+
+  .Step-4__total-wrapper {
+    color: var(--cool-gray);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Step-4__total {
+    font-weight: 700;
+    color: var(--purplish-blue);
+  }
+
+  @media only screen and (max-width: 670px) {
+    .Form {
+      justify-content: space-between;
+    }
+
+    .Form-Navigation,
+    .Form__progress {
+      display: flex;
+    }
+
+    .Form-Navigation__desktop,
+    .Form__desktop-progress {
+      display: none;
+    }
+  }
+</style>
 <!-- <div (click)="test()">Test</div> -->
 <form class="Form" [formGroup]="multiStepForm">
   <section class="Form__wrapper">
