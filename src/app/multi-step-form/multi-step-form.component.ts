@@ -4,7 +4,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-multi-step-form',
   templateUrl: './multi-step-form.component.html',
-  styleUrls: ['./multi-step-form.component.css'],
+  styleUrls: [
+    './multi-step-form.component.css',
+    './multi-step-form-steps.component.css',
+  ],
 })
 export class MultiStepFormComponent {
   multiStepForm = new FormGroup({

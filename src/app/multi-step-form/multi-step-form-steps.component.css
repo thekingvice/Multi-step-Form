@@ -1,0 +1,240 @@
+/* Step 1 */
+
+.Step-1 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.Step-1__h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-1__p {
+  color: var(--cool-gray);
+}
+
+.Step-1__label {
+  color: var(--marine-blue);
+  font-size: 0.8rem;
+}
+
+.Step-1__text-input {
+  color: var(--marine-blue);
+  border: 1px solid var(--cool-gray);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.Step-1__text-input::placeholder {
+  color: var(--cool-gray);
+  opacity: 100%;
+}
+
+.Step-1__input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Step 2 */
+
+.Step-2 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.Step-2__h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-2__p {
+  color: var(--cool-gray);
+}
+
+.Step-2__button {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+  gap: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.Step-2__button-text-wrapper {
+  text-align: left;
+}
+
+.Step-2__button-h1 {
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-2__button-p {
+  color: var(--cool-gray);
+}
+
+.Step-2__annual-text {
+  color: var(--marine-blue);
+  font-size: 0.8rem;
+}
+
+.Step-2__switch {
+  background: var(--marine-blue);
+  width: 3rem;
+  height: 1.5rem;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.Step-2__switch-slider {
+  height: 1rem;
+  width: 1rem;
+  background: white;
+  border-radius: 100%;
+  transition: all 0.5s;
+}
+
+.Step-2__switch-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--light-gray);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  align-items: center;
+  font-weight: 500;
+}
+
+/* Step 3 */
+
+.Step-3 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.Step-3__h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marine-blue);
+}
+
+.Step-3__p {
+  color: var(--cool-gray);
+}
+
+.Step-3__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.Step-3__checkbox {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.25rem;
+  /* background: var(--purplish-blue); */
+  padding: 0.25rem;
+}
+
+.Step-3__check {
+  min-width: 1rem;
+  min-height: 1rem;
+}
+
+.Step-3__button-layout-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Step-3__button-text-wrapper {
+  text-align: left;
+}
+
+.Step-3__button-h1 {
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+
+.Step-3__button-p {
+  color: var(--cool-gray);
+}
+
+.Step-3__button-price {
+  color: var(--purplish-blue);
+}
+
+/* Step 4 */
+
+.Step-4 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.Step-4__h1 {
+  font-size: 1.5rem;
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+
+.Step-4__p {
+  color: var(--cool-gray);
+}
+
+/* Step 5 */
+
+.Step-5 {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
+  border-radius: 0.5rem;
+  gap: 1rem;
+
+  text-align: center;
+  max-width: 25rem;
+}
+
+.Step-5__icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.Step-5__h1 {
+  color: var(--marine-blue);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.Step-5__p {
+  color: var(--cool-gray);
+}
