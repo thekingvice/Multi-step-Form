@@ -17,10 +17,6 @@
   padding: 2rem 0 6rem 0;
 }
 
-/* .Form__current-step {
-  transform: translate(0, -4rem);
-} */
-
 .Form__desktop-progress-step {
   display: flex;
   align-items: center;
@@ -169,5 +165,9 @@
 
   .Form-Navigation__desktop {
     display: none;
+  }
+
+  .Form__desktop {
+    transform: translate(0, -4rem);
   }
 }
