@@ -167,4 +167,34 @@ export class MultiStepFormComponent {
       this.stepCounter -= 1;
     }
   }
+
+  isName() {
+    const name: any = this.multiStepForm.value.name;
+    const namePattern = /^[A-Za-z]+(?: [A-Za-z]+)?$/;
+    if (!name || namePattern.test(name)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isEmail() {
+    const email: any = this.multiStepForm.value.email;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!email || emailPattern.test(email)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isUSPhone() {
+    const phone: any = this.multiStepForm.value.phone;
+    const phonePattern = /^\d{10}$/;
+    if (!phone || phonePattern.test(phone)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

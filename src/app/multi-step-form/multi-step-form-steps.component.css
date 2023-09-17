@@ -41,6 +41,12 @@
   flex-direction: column;
 }
 
+.Step-1__error {
+  font-size: 0.8rem;
+  color: var(--strawberry-red);
+  padding-top: 0.25rem;
+}
+
 /* Step 2 */
 
 .Step-2 {
