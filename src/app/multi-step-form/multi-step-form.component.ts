@@ -73,10 +73,16 @@ export class MultiStepFormComponent {
     console.log(this.multiStepForm.value);
   }
 
+  // setRadioAddon(controlName: string) {
+  //   const patchObject: { [key: string]: boolean } = {};
+  //   patchObject[controlName] = !patchObject[controlName];
+  //   this.multiStepForm.patchValue(patchObject);
+  //   console.log(this.multiStepForm.value);
+  // }
+
   setRadioAddon(controlName: string) {
-    const patchObject: { [key: string]: boolean } = {};
-    patchObject[controlName] = true;
-    this.multiStepForm.patchValue(patchObject);
+    const currentValue = this.multiStepForm.get(controlName)?.value;
+    this.multiStepForm.get(controlName)?.setValue(!currentValue);
     console.log(this.multiStepForm.value);
   }
 
@@ -159,7 +165,24 @@ export class MultiStepFormComponent {
   stepCounter = 0;
 
   incrementStep() {
-    this.stepCounter += 1;
+    if (
+      this.stepCounter === 0 &&
+      this.isName() &&
+      this.isEmail() &&
+      this.isUSPhone()
+    ) {
+      this.stepCounter += 1;
+      console.log(this.stepCounter);
+    }
+    if (
+      this.stepCounter === 1 &&
+      (this.multiStepForm.value.arcade ||
+        this.multiStepForm.value.advanced ||
+        this.multiStepForm.value.pro)
+    ) {
+      this.stepCounter += 1;
+      console.log(this.stepCounter);
+    }
   }
 
   decrementStep() {
@@ -171,7 +194,16 @@ export class MultiStepFormComponent {
   isName() {
     const name: any = this.multiStepForm.value.name;
     const namePattern = /^[A-Za-z]+(?: [A-Za-z]+)?$/;
-    if (!name || namePattern.test(name)) {
+    if (namePattern.test(name)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isNameEmpty() {
+    const name: any = this.multiStepForm.value.name;
+    if (!name) {
       return true;
     } else {
       return false;
@@ -181,7 +213,16 @@ export class MultiStepFormComponent {
   isEmail() {
     const email: any = this.multiStepForm.value.email;
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!email || emailPattern.test(email)) {
+    if (emailPattern.test(email)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isEmailEmpty() {
+    const email: any = this.multiStepForm.value.email;
+    if (!email) {
       return true;
     } else {
       return false;
@@ -191,10 +232,23 @@ export class MultiStepFormComponent {
   isUSPhone() {
     const phone: any = this.multiStepForm.value.phone;
     const phonePattern = /^\d{10}$/;
-    if (!phone || phonePattern.test(phone)) {
+    if (phonePattern.test(phone)) {
       return true;
     } else {
       return false;
     }
+  }
+
+  isPhoneEmpty() {
+    const phone: any = this.multiStepForm.value.phone;
+    if (!phone) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  changePlan() {
+    this.stepCounter = 1;
   }
 }
