@@ -173,13 +173,15 @@ export class MultiStepFormComponent {
     ) {
       this.stepCounter += 1;
       console.log(this.stepCounter);
-    }
-    if (
+    } else if (
       this.stepCounter === 1 &&
       (this.multiStepForm.value.arcade ||
         this.multiStepForm.value.advanced ||
         this.multiStepForm.value.pro)
     ) {
+      this.stepCounter += 1;
+      console.log(this.stepCounter);
+    } else if (this.stepCounter === 2) {
       this.stepCounter += 1;
       console.log(this.stepCounter);
     }
