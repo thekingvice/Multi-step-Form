@@ -253,4 +253,10 @@ export class MultiStepFormComponent {
   changePlan() {
     this.stepCounter = 1;
   }
+
+  submitForm() {
+    console.log(this.multiStepForm.value);
+    this.stepCounter += 1;
+    console.log('Submited');
+  }
 }

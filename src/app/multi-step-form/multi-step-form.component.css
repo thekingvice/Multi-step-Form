@@ -104,6 +104,14 @@
   cursor: pointer;
 }
 
+.Form-Navigation__confirm {
+  background: var(--purplish-blue);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 670px) {
   .Form {
     justify-content: space-between;

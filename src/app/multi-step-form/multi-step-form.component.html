@@ -1,7 +1,7 @@
 <!-- work on hidden radio buttons -->
 
 <!-- <div (click)="test()">Test</div> -->
-<form class="Form" [formGroup]="multiStepForm">
+<form class="Form" [formGroup]="multiStepForm" (submit)="submitForm()">
   <section class="Form__wrapper">
     <section class="Form__progress">
       <p
@@ -523,15 +523,26 @@
           class="Form-Navigation__desktop"
           [ngStyle]="{ visibility: stepCounter === 4 ? 'hidden' : '' }"
         >
-          <button
+          <aside
             class="Form-Navigation__back"
             (click)="decrementStep()"
             [ngStyle]="{ visibility: stepCounter === 0 ? 'hidden' : '' }"
           >
             Go Back
-          </button>
-          <button class="Form-Navigation__forward" (click)="incrementStep()">
+          </aside>
+          <aside
+            class="Form-Navigation__forward"
+            (click)="incrementStep()"
+            *ngIf="stepCounter <= 2"
+          >
             Next Step
+          </aside>
+          <button
+            class="Form-Navigation__confirm"
+            *ngIf="stepCounter === 3"
+            type="submit"
+          >
+            Confirm
           </button>
         </section>
       </section>
@@ -541,15 +552,26 @@
     class="Form-Navigation"
     [ngStyle]="{ visibility: stepCounter === 4 ? 'hidden' : '' }"
   >
-    <button
+    <aside
       class="Form-Navigation__back"
       (click)="decrementStep()"
       [ngStyle]="{ visibility: stepCounter === 0 ? 'hidden' : '' }"
     >
       Go Back
-    </button>
-    <button class="Form-Navigation__forward" (click)="incrementStep()">
+    </aside>
+    <aside
+      class="Form-Navigation__forward"
+      (click)="incrementStep()"
+      *ngIf="stepCounter <= 2"
+    >
       Next Step
+    </aside>
+    <button
+      class="Form-Navigation__confirm"
+      *ngIf="stepCounter === 3"
+      type="submit"
+    >
+      Confirm
     </button>
   </section>
 </form>
