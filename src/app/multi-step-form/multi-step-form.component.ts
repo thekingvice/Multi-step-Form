@@ -25,8 +25,6 @@ export class MultiStepFormComponent {
     customizableProfile: new FormControl(false),
   });
 
-  // isAnnual = false;
-
   prices = {
     arcade: { monthly: 9, annually: 90 },
     advanced: { monthly: 12, annually: 120 },
@@ -36,30 +34,9 @@ export class MultiStepFormComponent {
     customizableProfile: { monthly: 2, annually: 20 },
   };
 
-  // plan = '';
-
-  // plans = [false, false, false];
-
-  // addOns = [false, false, false];
-
-  // setPlan(plan: number) {
-  //   this.plans = [false, false, false];
-  //   this.plans[plan] = true;
-  //   console.log(this.plans);
-  // }
-
-  // changePlan(plan: string) {
-  //   this.plan = plan;
-  // }
-
   setIsAnnual() {
     this.multiStepForm.patchValue({ isAnnual: true });
   }
-
-  // setAddon(index: number) {
-  //   this.addOns[index] = !this.addOns[index];
-  //   console.log(this.addOns);
-  // }
 
   setRadioPlan(controlName: string) {
     this.multiStepForm.patchValue({
@@ -70,24 +47,11 @@ export class MultiStepFormComponent {
     const patchObject: { [key: string]: boolean } = {};
     patchObject[controlName] = true;
     this.multiStepForm.patchValue(patchObject);
-    console.log(this.multiStepForm.value);
   }
-
-  // setRadioAddon(controlName: string) {
-  //   const patchObject: { [key: string]: boolean } = {};
-  //   patchObject[controlName] = !patchObject[controlName];
-  //   this.multiStepForm.patchValue(patchObject);
-  //   console.log(this.multiStepForm.value);
-  // }
 
   setRadioAddon(controlName: string) {
     const currentValue = this.multiStepForm.get(controlName)?.value;
     this.multiStepForm.get(controlName)?.setValue(!currentValue);
-    console.log(this.multiStepForm.value);
-  }
-
-  test() {
-    console.log(this.multiStepForm.value);
   }
 
   totalMonthly() {
@@ -172,7 +136,6 @@ export class MultiStepFormComponent {
       this.isUSPhone()
     ) {
       this.stepCounter += 1;
-      console.log(this.stepCounter);
     } else if (
       this.stepCounter === 1 &&
       (this.multiStepForm.value.arcade ||
@@ -180,10 +143,8 @@ export class MultiStepFormComponent {
         this.multiStepForm.value.pro)
     ) {
       this.stepCounter += 1;
-      console.log(this.stepCounter);
     } else if (this.stepCounter === 2) {
       this.stepCounter += 1;
-      console.log(this.stepCounter);
     }
   }
 
@@ -257,6 +218,5 @@ export class MultiStepFormComponent {
   submitForm() {
     console.log(this.multiStepForm.value);
     this.stepCounter += 1;
-    console.log('Submited');
   }
 }
